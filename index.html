@@ -219,6 +219,13 @@
     .copy { appearance: none; cursor: pointer; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--gold); background: var(--gold-soft); border: 1px solid var(--gold-border); border-radius: 8px; padding: 5px 10px; transition: background 0.2s; }
     .copy:hover { background: rgba(226, 183, 92, 0.22); }
     @media (max-width: 700px) { .donate-grid { grid-template-columns: 1fr; } .donate { padding: 22px 16px; } }
+    .cer-logo { display: block; background: #fff; border-radius: 12px; padding: 10px 14px; margin-bottom: 18px; max-width: 320px; transition: transform 0.2s; }
+    .cer-logo:hover { transform: scale(1.02); }
+    .cer-logo img { display: block; width: 100%; height: auto; }
+    .cer-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; }
+    .cer-links a { display: inline-flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 600; color: var(--gold); text-decoration: none; }
+    .cer-links a:hover { text-decoration: underline; }
+    .cer-links svg { width: 17px; height: 17px; flex-shrink: 0; }
     /* ---------- Apps ---------- */
     .app {
       display: flex; flex-direction: column; gap: 14px;
@@ -415,11 +422,13 @@
       <div class="wrap">
         <div class="grid grid-2">
           <div class="card">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
-            </div>
+            <a class="cer-logo" href="https://rabbiscer.org/" target="_blank" rel="noopener"><img src="cer-logo.webp" alt="Conference of European Rabbis (CER)" width="640" height="217"></a>
             <h3 data-i18n="cer_title">Together with the Conference of European Rabbis</h3>
             <p data-i18n="cer_text">Tora Doctor works together with the CER. As part of its programme, we regularly visit communities and synagogues across Europe.</p>
+            <div class="cer-links">
+              <a href="https://rabbiscer.org/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span class="ltr">rabbiscer.org</span></a>
+              <a href="mailto:SOFER@rabbiscer.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="ltr">SOFER@rabbiscer.org</span></a>
+            </div>
           </div>
           <div class="card">
             <div class="icon" aria-hidden="true">
