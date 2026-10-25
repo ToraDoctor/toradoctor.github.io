@@ -214,6 +214,7 @@
     .app--maaser { --accent: var(--gold); --accent-soft: var(--gold-soft); --accent-border: var(--gold-border); }
     .app--luach  { --accent: var(--blue); --accent-soft: var(--blue-soft); --accent-border: var(--blue-border); }
     .app .icon { background: var(--accent-soft); color: var(--accent); margin-bottom: 0; }
+    .app-logo { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); display: block; }
     .app-title { font-size: 20px; font-weight: 650; color: var(--heading); line-height: 1.3; }
     .app-title small { display: block; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; color: var(--accent); margin-top: 3px; }
     .app p { flex: 1; }
@@ -420,9 +421,7 @@
         </div>
         <div class="grid grid-2">
           <a class="card app app--maaser" href="/maaser/">
-            <div class="icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2.5" width="16" height="19" rx="2.5"/><rect x="7" y="5.5" width="10" height="4" rx="1"/><path d="M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01M16 17h.01"/></svg>
-            </div>
+            <img class="app-logo" src="maaser-logo.webp" alt="" width="64" height="64">
             <div class="app-title">
               Maaser Lemehadrin
               <small data-i18n-html="maaser_sub">Maaser calculator · <span class="he">מעשר כספים</span></small>
