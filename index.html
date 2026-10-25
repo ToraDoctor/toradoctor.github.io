@@ -204,6 +204,21 @@
     .support-actions { margin-top: 20px; }
     .support-actions .btn { padding: 11px 20px; font-size: 14.5px; }
     .badge-hot { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--bg); background: var(--gold); padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
+    .donate { margin-top: 18px; padding: 28px 24px; border: 1px solid var(--gold-border); border-radius: var(--radius); background: radial-gradient(circle at 0% 0%, var(--gold-soft), transparent 60%), var(--card); scroll-margin-top: 20px; }
+    .donate h3 { font-size: 19px; font-weight: 700; color: var(--heading); }
+    .donate-sub { color: var(--muted); font-size: 14.5px; margin: 4px 0 18px; }
+    .donate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .donate-item { padding: 16px; border-radius: 14px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); display: grid; gap: 10px; align-content: start; }
+    .donate-label { font-size: 13px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gold); }
+    .donate-label span { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--muted); }
+    .donate-kv { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px; color: var(--muted); }
+    .donate-kv span:last-child { color: var(--text); font-weight: 600; }
+    .donate-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14.5px; color: var(--text); word-break: break-all; }
+    .mono small { font-family: inherit; color: var(--muted); font-size: 12px; margin-inline-end: 6px; }
+    .copy { appearance: none; cursor: pointer; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--gold); background: var(--gold-soft); border: 1px solid var(--gold-border); border-radius: 8px; padding: 5px 10px; transition: background 0.2s; }
+    .copy:hover { background: rgba(226, 183, 92, 0.22); }
+    @media (max-width: 700px) { .donate-grid { grid-template-columns: 1fr; } .donate { padding: 22px 16px; } }
     /* ---------- Apps ---------- */
     .app {
       display: flex; flex-direction: column; gap: 14px;
@@ -444,7 +459,23 @@
             <h3 data-i18n="sup2_title">Donate tefillin or a mezuzah</h3>
             <p data-i18n="sup2_text">You can donate kosher tefillin or a mezuzah to a Jew who cannot afford to buy them. We will make sure your gift reaches someone who needs it.</p>
             <div class="support-actions">
-              <a class="btn btn-ghost" href="https://wa.me/972584664488" target="_blank" rel="noopener" data-i18n="sup2_btn">Make a donation</a>
+              <a class="btn btn-ghost" href="#donate" data-i18n="sup2_btn">Make a donation</a>
+            </div>
+          </div>
+        </div>
+        <div class="donate" id="donate">
+          <h3 data-i18n="don_title">How to donate</h3>
+          <p class="donate-sub" data-i18n="don_sub">Please add a note: "Sponsorship" or "Tefillin / Mezuzah".</p>
+          <div class="donate-grid">
+            <div class="donate-item">
+              <div class="donate-label">PayPal <span data-i18n="don_pp_note">(Friends &amp; Family)</span></div>
+              <div class="donate-row"><span class="ltr mono">s.nekrich@gmail.com</span><button type="button" class="copy" data-copy="s.nekrich@gmail.com" data-i18n="copy">Copy</button></div>
+            </div>
+            <div class="donate-item">
+              <div class="donate-label" data-i18n="don_bank">Bank transfer</div>
+              <div class="donate-kv"><span data-i18n="don_holder">Account holder</span><span class="ltr">Tora Doctor</span></div>
+              <div class="donate-row"><span class="ltr mono"><small>IBAN</small> BE87 9054 7023 5694</span><button type="button" class="copy" data-copy="BE87905470235694" data-i18n="copy">Copy</button></div>
+              <div class="donate-row"><span class="ltr mono"><small>SWIFT / BIC</small> TRWIBEB1XXX</span><button type="button" class="copy" data-copy="TRWIBEB1XXX" data-i18n="copy">Copy</button></div>
             </div>
           </div>
         </div>
@@ -587,6 +618,13 @@
           sup2_text: "You can donate kosher tefillin or a mezuzah to a Jew who cannot afford to buy them. We will make sure your gift reaches someone who needs it.",
           sup2_btn: "Make a donation",
           btn_support: "Support us",
+          don_title: "How to donate",
+          don_sub: "Please add a note: “Sponsorship” or “Tefillin / Mezuzah”.",
+          don_pp_note: "(Friends & Family)",
+          don_bank: "Bank transfer",
+          don_holder: "Account holder",
+          copy: "Copy",
+          copied: "Copied ✓",
           contact_sub: "Write to us — we will explain the terms and arrange a convenient date for a visit."
         },
 
@@ -644,6 +682,13 @@
           sup2_text: "Sie können koschere Tefillin oder eine Mesusa für einen Juden spenden, der sie sich nicht leisten kann. Wir sorgen dafür, dass Ihr Geschenk einen Menschen erreicht, der es braucht.",
           sup2_btn: "Spenden",
           btn_support: "Unterstützen",
+          don_title: "So können Sie spenden",
+          don_sub: "Bitte geben Sie als Verwendungszweck an: „Sponsoring“ oder „Tefillin / Mesusa“.",
+          don_pp_note: "(Freunde & Familie)",
+          don_bank: "Banküberweisung",
+          don_holder: "Kontoinhaber",
+          copy: "Kopieren",
+          copied: "Kopiert ✓",
           contact_sub: "Schreiben Sie uns – wir informieren Sie über die Konditionen und vereinbaren einen passenden Termin für den Besuch."
         },
 
@@ -701,6 +746,13 @@
           sup2_text: "ניתן לתרום תפילין או מזוזה כשרות ליהודי שאין ידו משגת לקנותן. אנו נדאג שהמתנה שלכם תגיע למי שזקוק לה.",
           sup2_btn: "לתרומה",
           btn_support: "לתמיכה בנו",
+          don_title: "איך תורמים",
+          don_sub: "נא לציין בהערה: „חסות” או „תפילין / מזוזה”.",
+          don_pp_note: "(חברים ומשפחה)",
+          don_bank: "העברה בנקאית",
+          don_holder: "שם בעל החשבון",
+          copy: "העתקה",
+          copied: "הועתק ✓",
           contact_sub: "כתבו לנו — נסביר את התנאים ונתאם מועד נוח לביקור."
         },
 
@@ -758,6 +810,13 @@
           sup2_text: "Вы можете пожертвовать кашерные тфилин или мезузу еврею, у которого нет возможности их купить. Мы позаботимся, чтобы ваш подарок дошёл до того, кому он нужен.",
           sup2_btn: "Сделать пожертвование",
           btn_support: "Поддержать",
+          don_title: "Как сделать пожертвование",
+          don_sub: "Пожалуйста, укажите в комментарии: «Спонсорство» или «Тфилин / Мезуза».",
+          don_pp_note: "(Friends & Family)",
+          don_bank: "Банковский перевод",
+          don_holder: "Получатель",
+          copy: "Копировать",
+          copied: "Скопировано ✓",
           contact_sub: "Напишите нам — расскажем об условиях и подберём удобную дату визита."
         }
       };
@@ -807,6 +866,21 @@
           var l = b.getAttribute("data-lang");
           apply(l);
           try { localStorage.setItem("td_lang", l); } catch (e) {}
+        });
+      });
+
+      document.querySelectorAll(".copy").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var v = b.getAttribute("data-copy");
+          var d = T[document.documentElement.lang] || T.en;
+          function done() { b.textContent = d.copied; setTimeout(function () { b.textContent = d.copy; }, 1800); }
+          function fallback() {
+            var t = document.createElement("textarea"); t.value = v; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
+            document.body.appendChild(t); t.select();
+            try { document.execCommand("copy"); done(); } catch (e) {}
+            document.body.removeChild(t);
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(v).then(done, fallback); } else { fallback(); }
         });
       });
 
