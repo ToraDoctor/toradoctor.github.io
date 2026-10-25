@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tora Doctor — проверка и восстановление סת"ם</title>
-  <meta name="description" content="Tora Doctor — проверка, ремонт и продажа свитков Торы, мезуз и тфилин. Работаем вместе с Конференцией европейских раввинов (CER). Приложения Maaser Lemehadrin и LuachPlus.">
+  <title>Tora Doctor — STAM checking &amp; restoration</title>
+  <meta name="description" content="Tora Doctor — checking, repair and sale of Torah scrolls, mezuzot and tefillin. In cooperation with the Conference of European Rabbis (CER). Apps: Maaser Lemehadrin and LuachPlus.">
   <meta name="theme-color" content="#0f172a">
   <meta property="og:title" content="Tora Doctor">
-  <meta property="og:description" content="Проверка, ремонт и продажа свитков Торы, мезуз и тфилин. Клиенты по всей Европе и за её пределами.">
+  <meta property="og:description" content="Checking, repair and sale of Torah scrolls, mezuzot and tefillin. Clients across Europe and beyond.">
   <meta property="og:url" content="https://toradoctor.com/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23e2b75c' font-family='Georgia,serif' font-weight='700'%3ETD%3C/text%3E%3C/svg%3E">
   <style>
@@ -49,14 +49,16 @@
 
     a { color: inherit; }
     .he { font-family: "David", "Frank Ruehl CLM", "Times New Roman", serif; unicode-bidi: isolate; }
+    .ltr { direction: ltr; unicode-bidi: isolate; }
 
     .wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 20px; }
 
-    /* ---------- Шапка ---------- */
+    /* ---------- Header ---------- */
     header { padding: 22px 0; }
     header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
 
-    .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; direction: ltr; }
     .logo-mark {
       width: 40px; height: 40px; border-radius: 50%;
       display: grid; place-items: center;
@@ -68,8 +70,25 @@
     .logo-name { font-family: Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 600; letter-spacing: 0.3px; }
     .logo-name span { color: var(--gold); }
 
+    .lang {
+      display: flex; gap: 2px; padding: 3px;
+      border: 1px solid var(--border); border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      direction: ltr;
+    }
+    .lang button {
+      appearance: none; border: 0; background: none; cursor: pointer;
+      font: inherit; font-size: 12.5px; font-weight: 700; letter-spacing: 0.4px;
+      color: var(--muted);
+      padding: 6px 10px; border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang button:hover { color: var(--text); }
+    .lang button[aria-pressed="true"] { background: var(--gold-soft); color: var(--gold); }
+    .lang button:focus-visible { outline: 2px solid var(--gold-border); outline-offset: 1px; }
+
     .header-cta {
-      font-size: 14px; font-weight: 600; text-decoration: none;
+      font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap;
       padding: 9px 16px; border-radius: 999px;
       border: 1px solid var(--border); color: var(--text);
       transition: border-color 0.2s, background 0.2s;
@@ -91,11 +110,12 @@
     h1 {
       font-size: clamp(32px, 6.2vw, 56px);
       line-height: 1.12; font-weight: 750; letter-spacing: -0.8px;
-      max-width: 780px; margin: 0 auto 20px;
+      max-width: 800px; margin: 0 auto 20px;
       background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 100%);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
     h1 em { font-style: normal; background: linear-gradient(135deg, #f3d48a, var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    [dir="rtl"] h1 { letter-spacing: 0; }
 
     .lead { font-size: clamp(16px, 2.3vw, 19px); color: var(--muted); max-width: 640px; margin: 0 auto 34px; }
 
@@ -118,7 +138,7 @@
     .trust span { display: inline-flex; align-items: center; gap: 8px; }
     .trust svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
 
-    /* ---------- Секции ---------- */
+    /* ---------- Sections ---------- */
     section { padding: 56px 0; }
     .section-head { text-align: center; margin-bottom: 36px; }
     .eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
@@ -152,7 +172,7 @@
     .card h3 { font-size: 17.5px; font-weight: 650; color: var(--heading); margin-bottom: 8px; line-height: 1.35; }
     .card p { font-size: 15px; color: var(--muted); }
 
-    /* ---------- Разработка ---------- */
+    /* ---------- Software ---------- */
     .feature {
       display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: center;
       padding: 40px;
@@ -179,7 +199,7 @@
     }
     .checklist svg { width: 20px; height: 20px; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
 
-    /* ---------- Приложения ---------- */
+    /* ---------- Apps ---------- */
     .app {
       display: flex; flex-direction: column; gap: 14px;
       text-decoration: none; color: inherit; overflow: hidden;
@@ -200,8 +220,10 @@
     .app-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14.5px; font-weight: 600; color: var(--accent); }
     .app-link svg { width: 16px; height: 16px; transition: transform 0.25s; }
     .app:hover .app-link svg { transform: translateX(4px); }
+    [dir="rtl"] .app-link svg { transform: scaleX(-1); }
+    [dir="rtl"] .app:hover .app-link svg { transform: scaleX(-1) translateX(4px); }
 
-    /* ---------- Контакты ---------- */
+    /* ---------- Contact ---------- */
     .contact {
       text-align: center; padding: 44px 28px;
       border: 1px solid var(--border); border-radius: 24px;
@@ -219,7 +241,7 @@
     .contact-list a:hover { border-color: var(--gold-border); background: var(--gold-soft); transform: translateY(-2px); }
     .contact-list svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
 
-    /* ---------- Футер ---------- */
+    /* ---------- Footer ---------- */
     footer { padding: 30px 0 36px; margin-top: 24px; border-top: 1px solid rgba(148, 163, 184, 0.08); }
     footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--faint); }
     footer a { text-decoration: none; transition: color 0.2s; }
@@ -236,15 +258,21 @@
       html { scroll-behavior: auto; }
     }
 
-    /* ---------- Адаптивность ---------- */
+    /* ---------- Responsive ---------- */
     @media (max-width: 900px) {
       .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .feature { grid-template-columns: 1fr; padding: 30px 24px; gap: 24px; }
     }
+    @media (max-width: 640px) {
+      .header-cta { display: none; }
+    }
     @media (max-width: 600px) {
       .wrap { padding: 0 16px; }
       header { padding: 16px 0; }
-      .header-cta { display: none; }
+      .logo { gap: 9px; }
+      .logo-mark { width: 34px; height: 34px; font-size: 13px; }
+      .logo-name { font-size: 17px; }
+      .lang button { padding: 5px 8px; font-size: 12px; }
       .hero { padding: 36px 0 48px; }
       section { padding: 40px 0; }
       .grid-4, .grid-2 { grid-template-columns: 1fr; }
@@ -254,17 +282,28 @@
       .contact-list a { width: 100%; justify-content: center; }
       footer .wrap { flex-direction: column; align-items: center; text-align: center; }
     }
+    @media (max-width: 360px) {
+      .logo-name { display: none; }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <div class="wrap">
-      <a class="logo" href="/" aria-label="Tora Doctor — на главную">
+      <a class="logo" href="/" aria-label="Tora Doctor">
         <span class="logo-mark" aria-hidden="true">TD</span>
         <span class="logo-name">Tora <span>Doctor</span></span>
       </a>
-      <a class="header-cta" href="#contact">Связаться</a>
+      <div class="header-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          <button type="button" data-lang="he" aria-pressed="false">עב</button>
+          <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+        </div>
+        <a class="header-cta" href="#contact" data-i18n="nav_contact">Contact</a>
+      </div>
     </div>
   </header>
 
@@ -272,84 +311,81 @@
     <!-- Hero -->
     <div class="hero">
       <div class="wrap">
-        <div class="status"><span class="status-dot" aria-hidden="true"></span>Полная версия сайта скоро</div>
-        <h1>Проверка и восстановление <em>свитков Торы, мезуз и тфилин</em></h1>
-        <p class="lead">
-          Помогаем общинам, синагогам и частным лицам сохранять святые тексты кашерными —
-          по всей Европе и за её пределами.
-        </p>
+        <div class="status"><span class="status-dot" aria-hidden="true"></span><span data-i18n="status">Full website coming soon</span></div>
+        <h1 data-i18n-html="h1">Checking and restoration of <em>Torah scrolls, mezuzot and tefillin</em></h1>
+        <p class="lead" data-i18n="lead">We help communities, synagogues and individuals keep their sacred texts kosher — across Europe and beyond.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Заказать проверку</a>
-          <a class="btn btn-ghost" href="#apps">Наши приложения</a>
+          <a class="btn btn-primary" href="#contact" data-i18n="btn_order">Request a check</a>
+          <a class="btn btn-ghost" href="#apps" data-i18n="btn_apps">Our apps</a>
         </div>
         <div class="trust">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Совместно с CER</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Компьютерная проверка</span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Официальный отчёт и смета</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="trust1">In cooperation with CER</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="trust2">Computer-assisted checking</span></span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="trust3">Official report and cost estimate</span></span>
         </div>
       </div>
     </div>
 
-    <!-- Услуги -->
+    <!-- Services -->
     <section id="services">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">Услуги</div>
-          <h2>Что мы делаем</h2>
+          <div class="eyebrow" data-i18n="services_eyebrow">Services</div>
+          <h2 data-i18n="services_title">What we do</h2>
         </div>
         <div class="grid grid-4">
           <div class="card">
             <div class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v18M18 3v18"/><rect x="6" y="5" width="12" height="14" rx="1"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
             </div>
-            <h3>Проверка свитков Торы <span class="he">(ספר תורה)</span></h3>
-            <p>Выезжаем в общину и проверяем все свитки. Вы получаете официальный отчёт о состоянии каждого и смету на ремонт.</p>
+            <h3 data-i18n-html="s1_title">Torah scroll checking <span class="he">(ספר תורה)</span></h3>
+            <p data-i18n="s1_text">We come to your community and check all its Torah scrolls. You receive an official report on the condition of each scroll and a repair cost estimate.</p>
           </div>
           <div class="card">
             <div class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><circle cx="11" cy="10" r="2.5"/><path d="m13 12 2 2"/></svg>
             </div>
-            <h3>Компьютерная проверка</h3>
-            <p>Специализированное ПО находит пропущенные, лишние и перепутанные буквы, которые легко упустить глазами.</p>
+            <h3 data-i18n="s2_title">Computer checking</h3>
+            <p data-i18n="s2_text">Specialised software finds missing, extra and swapped letters that are easy to miss by eye.</p>
           </div>
           <div class="card">
             <div class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
             </div>
-            <h3>Ремонт и восстановление</h3>
-            <p>Мелкие исправления делаем на месте. Свитки, которым нужен серьёзный ремонт, восстанавливаем в мастерской.</p>
+            <h3 data-i18n="s3_title">Repair and restoration</h3>
+            <p data-i18n="s3_text">Minor corrections are done on site. Scrolls that need major repair are restored in our workshop.</p>
           </div>
           <div class="card">
             <div class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M10 7h4M10 11h4M10 15h4"/></svg>
             </div>
-            <h3>Мезузы и тфилин <span class="he">(מזוזות ותפילין)</span></h3>
-            <p>Проверяем, ремонтируем и продаём кашерные мезузы и тфилин.</p>
+            <h3 data-i18n-html="s4_title">Mezuzot and tefillin <span class="he">(מזוזות ותפילין)</span></h3>
+            <p data-i18n="s4_text">We check, repair and sell kosher mezuzot and tefillin.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Разработка ПО -->
+    <!-- Software -->
     <section id="software">
       <div class="wrap">
         <div class="feature">
           <div>
-            <div class="pill">В разработке</div>
-            <h2>Собственное ПО для проверки <span class="he">סת"ם</span></h2>
-            <p>Сейчас мы создаём собственное программное обеспечение для проверки свитков Торы, тфилин и мезуз.</p>
-            <p>Наша цель — сделать компьютерную проверку ещё точнее, надёжнее и доступнее для сойферов и общин.</p>
+            <div class="pill" data-i18n="soft_pill">In development</div>
+            <h2 data-i18n-html="soft_title">Our own software for checking <span class="he">סת"ם</span></h2>
+            <p data-i18n="soft_p1">We are currently developing our own software for checking Torah scrolls, tefillin and mezuzot.</p>
+            <p data-i18n="soft_p2">Our goal is to make computer checking even more accurate, reliable and accessible for soferim and communities.</p>
           </div>
           <ul class="checklist">
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Свитки Торы — проверка всего текста</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Тфилин — проверка всех паршиёт</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Мезузы — быстрая и точная проверка</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="soft_c1">Torah scrolls — checking the entire text</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="soft_c2">Tefillin — checking all parshiyot</span></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span data-i18n="soft_c3">Mezuzot — fast and precise checking</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- CER и волонтёрство -->
+    <!-- CER & volunteering -->
     <section id="about">
       <div class="wrap">
         <div class="grid grid-2">
@@ -357,27 +393,27 @@
             <div class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
             </div>
-            <h3>Вместе с Конференцией европейских раввинов</h3>
-            <p>Tora Doctor работает вместе с CER. В рамках её программы мы регулярно посещаем общины и синагоги по всей Европе.</p>
+            <h3 data-i18n="cer_title">Together with the Conference of European Rabbis</h3>
+            <p data-i18n="cer_text">Tora Doctor works together with the CER. As part of its programme, we regularly visit communities and synagogues across Europe.</p>
           </div>
           <div class="card">
             <div class="icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg>
             </div>
-            <h3>Помощь отдалённым общинам</h3>
-            <p>Мы совершаем волонтёрские поездки в небольшие общины — например, в Японию. Община оплачивает дорогу и проживание, а мы бесплатно проверяем до трёх свитков Торы и делаем небольшие исправления на месте.</p>
+            <h3 data-i18n="remote_title">Helping remote communities</h3>
+            <p data-i18n="remote_text">We make volunteer trips to small communities — for example, to Japan. The community covers travel and accommodation, and we check up to three Torah scrolls free of charge and make minor corrections on site.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Приложения -->
+    <!-- Apps -->
     <section id="apps">
       <div class="wrap">
         <div class="section-head">
-          <div class="eyebrow">Наши разработки</div>
-          <h2>Полезные приложения</h2>
-          <p class="section-sub">Бесплатные приложения, созданные Tora Doctor.</p>
+          <div class="eyebrow" data-i18n="apps_eyebrow">Our projects</div>
+          <h2 data-i18n="apps_title">Useful apps</h2>
+          <p class="section-sub" data-i18n="apps_sub">Free apps created by Tora Doctor.</p>
         </div>
         <div class="grid grid-2">
           <a class="card app app--maaser" href="/maaser/">
@@ -386,10 +422,10 @@
             </div>
             <div class="app-title">
               Maaser Lemehadrin
-              <small>Калькулятор маасера · <span class="he">מעשר כספים</span></small>
+              <small data-i18n-html="maaser_sub">Maaser calculator · <span class="he">מעשר כספים</span></small>
             </div>
-            <p>Удобный инструмент для отслеживания и расчёта маасера: доходы, вычеты, несколько валют.</p>
-            <span class="app-link">Перейти на сайт приложения
+            <p data-i18n="maaser_text">A convenient tool for tracking and calculating maaser: income, deductions, multiple currencies.</p>
+            <span class="app-link"><span data-i18n="app_link">Go to the app website</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </span>
           </a>
@@ -399,10 +435,10 @@
             </div>
             <div class="app-title">
               LuachPlus
-              <small>Еврейский календарь · <span class="he">לוח</span></small>
+              <small data-i18n-html="luach_sub">Jewish calendar · <span class="he">לוח</span></small>
             </div>
-            <p>Еврейский и григорианский календарь в одном приложении, с событиями по еврейской дате и синхронизацией с Google Календарём.</p>
-            <span class="app-link">Перейти на сайт приложения
+            <p data-i18n="luach_text">Jewish and Gregorian calendar in one app, with events by Hebrew date and Google Calendar sync.</p>
+            <span class="app-link"><span data-i18n="app_link">Go to the app website</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </span>
           </a>
@@ -410,25 +446,25 @@
       </div>
     </section>
 
-    <!-- Контакты -->
+    <!-- Contact -->
     <section id="contact">
       <div class="wrap">
         <div class="contact">
-          <div class="eyebrow">Контакты</div>
-          <h2>Нужна проверка или ремонт?</h2>
-          <p class="section-sub">Напишите нам — расскажем об условиях и подберём удобную дату визита.</p>
+          <div class="eyebrow" data-i18n="contact_eyebrow">Contact</div>
+          <h2 data-i18n="contact_title">Need a check or repair?</h2>
+          <p class="section-sub" data-i18n="contact_sub">Write to us — we will explain the terms and arrange a convenient date for a visit.</p>
           <div class="contact-list">
             <a href="mailto:tora.doktor@gmail.com">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-              tora.doktor@gmail.com
+              <span class="ltr">tora.doktor@gmail.com</span>
             </a>
             <a href="https://wa.me/972584664488" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>
-              +972 58 466 4488
+              <span class="ltr">+972 58 466 4488</span>
             </a>
             <a href="tel:+4917661261450">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg>
-              +49 176 61261450
+              <span class="ltr">+49 176 61261450</span>
             </a>
           </div>
         </div>
@@ -438,7 +474,7 @@
 
   <footer>
     <div class="wrap">
-      <div>&copy; <span id="year">2026</span> Tora Doctor</div>
+      <div class="ltr">&copy; <span id="year">2026</span> Tora Doctor</div>
       <div class="footer-links">
         <a href="/maaser/">Maaser Lemehadrin</a>
         <a href="/luach/">LuachPlus</a>
@@ -447,7 +483,242 @@
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    (function () {
+      var HE = function (t) { return '<span class="he">' + t + '</span>'; };
+
+      var T = {
+        en: {
+          _title: "Tora Doctor — STAM checking & restoration",
+          nav_contact: "Contact",
+          status: "Full website coming soon",
+          h1: "Checking and restoration of <em>Torah scrolls, mezuzot and tefillin</em>",
+          lead: "We help communities, synagogues and individuals keep their sacred texts kosher — across Europe and beyond.",
+          btn_order: "Request a check",
+          btn_apps: "Our apps",
+          trust1: "In cooperation with CER",
+          trust2: "Computer-assisted checking",
+          trust3: "Official report and cost estimate",
+          services_eyebrow: "Services",
+          services_title: "What we do",
+          s1_title: "Torah scroll checking " + HE("(ספר תורה)"),
+          s1_text: "We come to your community and check all its Torah scrolls. You receive an official report on the condition of each scroll and a repair cost estimate.",
+          s2_title: "Computer checking",
+          s2_text: "Specialised software finds missing, extra and swapped letters that are easy to miss by eye.",
+          s3_title: "Repair and restoration",
+          s3_text: "Minor corrections are done on site. Scrolls that need major repair are restored in our workshop.",
+          s4_title: "Mezuzot and tefillin " + HE("(מזוזות ותפילין)"),
+          s4_text: "We check, repair and sell kosher mezuzot and tefillin.",
+          soft_pill: "In development",
+          soft_title: "Our own software for checking " + HE('סת"ם'),
+          soft_p1: "We are currently developing our own software for checking Torah scrolls, tefillin and mezuzot.",
+          soft_p2: "Our goal is to make computer checking even more accurate, reliable and accessible for soferim and communities.",
+          soft_c1: "Torah scrolls — checking the entire text",
+          soft_c2: "Tefillin — checking all parshiyot",
+          soft_c3: "Mezuzot — fast and precise checking",
+          cer_title: "Together with the Conference of European Rabbis",
+          cer_text: "Tora Doctor works together with the CER. As part of its programme, we regularly visit communities and synagogues across Europe.",
+          remote_title: "Helping remote communities",
+          remote_text: "We make volunteer trips to small communities — for example, to Japan. The community covers travel and accommodation, and we check up to three Torah scrolls free of charge and make minor corrections on site.",
+          apps_eyebrow: "Our projects",
+          apps_title: "Useful apps",
+          apps_sub: "Free apps created by Tora Doctor.",
+          maaser_sub: "Maaser calculator · " + HE("מעשר כספים"),
+          maaser_text: "A convenient tool for tracking and calculating maaser: income, deductions, multiple currencies.",
+          luach_sub: "Jewish calendar · " + HE("לוח"),
+          luach_text: "Jewish and Gregorian calendar in one app, with events by Hebrew date and Google Calendar sync.",
+          app_link: "Go to the app website",
+          contact_eyebrow: "Contact",
+          contact_title: "Need a check or repair?",
+          contact_sub: "Write to us — we will explain the terms and arrange a convenient date for a visit."
+        },
+
+        de: {
+          _title: "Tora Doctor — Prüfung und Restaurierung von STaM",
+          nav_contact: "Kontakt",
+          status: "Vollständige Website folgt in Kürze",
+          h1: "Prüfung und Restaurierung von <em>Torarollen, Mesusot und Tefillin</em>",
+          lead: "Wir helfen Gemeinden, Synagogen und Privatpersonen, ihre heiligen Texte koscher zu erhalten – in ganz Europa und darüber hinaus.",
+          btn_order: "Prüfung anfragen",
+          btn_apps: "Unsere Apps",
+          trust1: "In Zusammenarbeit mit der CER",
+          trust2: "Computergestützte Prüfung",
+          trust3: "Offizieller Bericht und Kostenvoranschlag",
+          services_eyebrow: "Leistungen",
+          services_title: "Was wir tun",
+          s1_title: "Prüfung von Torarollen " + HE("(ספר תורה)"),
+          s1_text: "Wir kommen in Ihre Gemeinde und prüfen alle Torarollen. Sie erhalten einen offiziellen Bericht über den Zustand jeder Rolle und einen Kostenvoranschlag für die Reparatur.",
+          s2_title: "Computergestützte Prüfung",
+          s2_text: "Spezielle Software findet fehlende, überzählige und vertauschte Buchstaben, die dem Auge leicht entgehen.",
+          s3_title: "Reparatur und Restaurierung",
+          s3_text: "Kleinere Korrekturen erledigen wir vor Ort. Rollen, die eine größere Reparatur brauchen, restaurieren wir in unserer Werkstatt.",
+          s4_title: "Mesusot und Tefillin " + HE("(מזוזות ותפילין)"),
+          s4_text: "Wir prüfen, reparieren und verkaufen koschere Mesusot und Tefillin.",
+          soft_pill: "In Entwicklung",
+          soft_title: "Eigene Software zur Prüfung von " + HE('סת"ם'),
+          soft_p1: "Derzeit entwickeln wir eine eigene Software zur Prüfung von Torarollen, Tefillin und Mesusot.",
+          soft_p2: "Unser Ziel ist es, die computergestützte Prüfung noch genauer, zuverlässiger und für Soferim und Gemeinden zugänglicher zu machen.",
+          soft_c1: "Torarollen – Prüfung des gesamten Textes",
+          soft_c2: "Tefillin – Prüfung aller Paraschiot",
+          soft_c3: "Mesusot – schnelle und genaue Prüfung",
+          cer_title: "Gemeinsam mit der Konferenz Europäischer Rabbiner",
+          cer_text: "Tora Doctor arbeitet mit der CER zusammen. Im Rahmen ihres Programms besuchen wir regelmäßig Gemeinden und Synagogen in ganz Europa.",
+          remote_title: "Hilfe für entlegene Gemeinden",
+          remote_text: "Wir unternehmen ehrenamtliche Reisen zu kleinen Gemeinden – zum Beispiel nach Japan. Die Gemeinde übernimmt Reise und Unterkunft, und wir prüfen kostenlos bis zu drei Torarollen und nehmen kleinere Korrekturen vor Ort vor.",
+          apps_eyebrow: "Unsere Entwicklungen",
+          apps_title: "Nützliche Apps",
+          apps_sub: "Kostenlose Apps von Tora Doctor.",
+          maaser_sub: "Maaser-Rechner · " + HE("מעשר כספים"),
+          maaser_text: "Ein praktisches Werkzeug zum Erfassen und Berechnen des Maaser: Einnahmen, Abzüge, mehrere Währungen.",
+          luach_sub: "Jüdischer Kalender · " + HE("לוח"),
+          luach_text: "Jüdischer und gregorianischer Kalender in einer App, mit Terminen nach jüdischem Datum und Synchronisierung mit Google Kalender.",
+          app_link: "Zur Website der App",
+          contact_eyebrow: "Kontakt",
+          contact_title: "Brauchen Sie eine Prüfung oder Reparatur?",
+          contact_sub: "Schreiben Sie uns – wir informieren Sie über die Konditionen und vereinbaren einen passenden Termin für den Besuch."
+        },
+
+        he: {
+          _title: 'Tora Doctor — בדיקה ושיקום סת"ם',
+          nav_contact: "צור קשר",
+          status: "גרסה מלאה של האתר בקרוב",
+          h1: "בדיקה ושיקום של <em>ספרי תורה, מזוזות ותפילין</em>",
+          lead: "אנו מסייעים לקהילות, לבתי כנסת ולאנשים פרטיים לשמור על כשרות כתבי הקודש — ברחבי אירופה ומחוצה לה.",
+          btn_order: "להזמנת בדיקה",
+          btn_apps: "האפליקציות שלנו",
+          trust1: "בשיתוף CER",
+          trust2: "בדיקה ממוחשבת",
+          trust3: "דוח רשמי והצעת מחיר",
+          services_eyebrow: "שירותים",
+          services_title: "מה אנחנו עושים",
+          s1_title: "בדיקת ספרי תורה",
+          s1_text: "אנו מגיעים לקהילה ובודקים את כל ספרי התורה שלה. תקבלו דוח רשמי על מצב כל ספר והצעת מחיר לתיקון.",
+          s2_title: "בדיקה ממוחשבת",
+          s2_text: "תוכנה ייעודית מאתרת אותיות חסרות, יתרות ומתחלפות, שקל לפספס בבדיקה בעין.",
+          s3_title: "תיקון ושיקום",
+          s3_text: "תיקונים קלים מתבצעים במקום. ספרים הזקוקים לתיקון מקיף משוקמים בסדנה שלנו.",
+          s4_title: "מזוזות ותפילין",
+          s4_text: "בדיקה, תיקון ומכירה של מזוזות ותפילין כשרות.",
+          soft_pill: "בפיתוח",
+          soft_title: 'תוכנה משלנו לבדיקת סת"ם',
+          soft_p1: "אנו מפתחים כעת תוכנה משלנו לבדיקת ספרי תורה, תפילין ומזוזות.",
+          soft_p2: "מטרתנו להפוך את הבדיקה הממוחשבת למדויקת, אמינה ונגישה יותר עבור סופרים וקהילות.",
+          soft_c1: "ספרי תורה — בדיקת הטקסט כולו",
+          soft_c2: "תפילין — בדיקת כל הפרשיות",
+          soft_c3: "מזוזות — בדיקה מהירה ומדויקת",
+          cer_title: "בשיתוף ועידת הרבנים של אירופה",
+          cer_text: "Tora Doctor פועלת יחד עם ועידת הרבנים של אירופה (CER). במסגרת התוכנית שלה אנו מבקרים באופן קבוע בקהילות ובבתי כנסת ברחבי אירופה.",
+          remote_title: "סיוע לקהילות מרוחקות",
+          remote_text: "אנו יוצאים בהתנדבות לקהילות קטנות — למשל ליפן. הקהילה מממנת את הנסיעה והלינה, ואנו בודקים בחינם עד שלושה ספרי תורה ומבצעים תיקונים קלים במקום.",
+          apps_eyebrow: "הפיתוחים שלנו",
+          apps_title: "אפליקציות שימושיות",
+          apps_sub: "אפליקציות חינמיות מבית Tora Doctor.",
+          maaser_sub: "מחשבון מעשר כספים",
+          maaser_text: "כלי נוח למעקב ולחישוב מעשר כספים: הכנסות, ניכויים וכמה מטבעות.",
+          luach_sub: "לוח שנה עברי",
+          luach_text: "לוח עברי ולועזי באפליקציה אחת, עם אירועים לפי תאריך עברי וסנכרון עם יומן Google.",
+          app_link: "לאתר האפליקציה",
+          contact_eyebrow: "צור קשר",
+          contact_title: "צריכים בדיקה או תיקון?",
+          contact_sub: "כתבו לנו — נסביר את התנאים ונתאם מועד נוח לביקור."
+        },
+
+        ru: {
+          _title: 'Tora Doctor — проверка и восстановление סת"ם',
+          nav_contact: "Связаться",
+          status: "Полная версия сайта скоро",
+          h1: "Проверка и восстановление <em>свитков Торы, мезуз и тфилин</em>",
+          lead: "Помогаем общинам, синагогам и частным лицам сохранять святые тексты кашерными — по всей Европе и за её пределами.",
+          btn_order: "Заказать проверку",
+          btn_apps: "Наши приложения",
+          trust1: "Совместно с CER",
+          trust2: "Компьютерная проверка",
+          trust3: "Официальный отчёт и смета",
+          services_eyebrow: "Услуги",
+          services_title: "Что мы делаем",
+          s1_title: "Проверка свитков Торы " + HE("(ספר תורה)"),
+          s1_text: "Выезжаем в общину и проверяем все свитки. Вы получаете официальный отчёт о состоянии каждого и смету на ремонт.",
+          s2_title: "Компьютерная проверка",
+          s2_text: "Специализированное ПО находит пропущенные, лишние и перепутанные буквы, которые легко упустить глазами.",
+          s3_title: "Ремонт и восстановление",
+          s3_text: "Мелкие исправления делаем на месте. Свитки, которым нужен серьёзный ремонт, восстанавливаем в мастерской.",
+          s4_title: "Мезузы и тфилин " + HE("(מזוזות ותפילין)"),
+          s4_text: "Проверяем, ремонтируем и продаём кашерные мезузы и тфилин.",
+          soft_pill: "В разработке",
+          soft_title: "Собственное ПО для проверки " + HE('סת"ם'),
+          soft_p1: "Сейчас мы создаём собственное программное обеспечение для проверки свитков Торы, тфилин и мезуз.",
+          soft_p2: "Наша цель — сделать компьютерную проверку ещё точнее, надёжнее и доступнее для сойферов и общин.",
+          soft_c1: "Свитки Торы — проверка всего текста",
+          soft_c2: "Тфилин — проверка всех паршиёт",
+          soft_c3: "Мезузы — быстрая и точная проверка",
+          cer_title: "Вместе с Конференцией европейских раввинов",
+          cer_text: "Tora Doctor работает вместе с CER. В рамках её программы мы регулярно посещаем общины и синагоги по всей Европе.",
+          remote_title: "Помощь отдалённым общинам",
+          remote_text: "Мы совершаем волонтёрские поездки в небольшие общины — например, в Японию. Община оплачивает дорогу и проживание, а мы бесплатно проверяем до трёх свитков Торы и делаем небольшие исправления на месте.",
+          apps_eyebrow: "Наши разработки",
+          apps_title: "Полезные приложения",
+          apps_sub: "Бесплатные приложения, созданные Tora Doctor.",
+          maaser_sub: "Калькулятор маасера · " + HE("מעשר כספים"),
+          maaser_text: "Удобный инструмент для отслеживания и расчёта маасера: доходы, вычеты, несколько валют.",
+          luach_sub: "Еврейский календарь · " + HE("לוח"),
+          luach_text: "Еврейский и григорианский календарь в одном приложении, с событиями по еврейской дате и синхронизацией с Google Календарём.",
+          app_link: "Перейти на сайт приложения",
+          contact_eyebrow: "Контакты",
+          contact_title: "Нужна проверка или ремонт?",
+          contact_sub: "Напишите нам — расскажем об условиях и подберём удобную дату визита."
+        }
+      };
+
+      var SUPPORTED = ["en", "de", "he", "ru"];
+
+      function apply(lang) {
+        var d = T[lang] || T.en;
+        var root = document.documentElement;
+        root.lang = lang;
+        root.dir = lang === "he" ? "rtl" : "ltr";
+        document.title = d._title;
+
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (d[k] != null) el.textContent = d[k];
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n-html");
+          if (d[k] != null) el.innerHTML = d[k];
+        });
+        document.querySelectorAll(".lang button").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+        });
+      }
+
+      function detect() {
+        try {
+          var q = new URLSearchParams(location.search).get("lang");
+          if (q && SUPPORTED.indexOf(q) > -1) return q;
+        } catch (e) {}
+        try {
+          var s = localStorage.getItem("td_lang");
+          if (s && SUPPORTED.indexOf(s) > -1) return s;
+        } catch (e) {}
+        var langs = navigator.languages || [navigator.language || "en"];
+        for (var i = 0; i < langs.length; i++) {
+          var p = String(langs[i]).toLowerCase().slice(0, 2);
+          if (p === "iw") p = "he";
+          if (SUPPORTED.indexOf(p) > -1) return p;
+        }
+        return "en";
+      }
+
+      document.querySelectorAll(".lang button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var l = b.getAttribute("data-lang");
+          apply(l);
+          try { localStorage.setItem("td_lang", l); } catch (e) {}
+        });
+      });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+      apply(detect());
+    })();
   </script>
 </body>
 </html>
