@@ -239,6 +239,9 @@
       transition: border-color 0.2s, background 0.2s, transform 0.2s;
     }
     .contact-list a:hover { border-color: var(--gold-border); background: var(--gold-soft); transform: translateY(-2px); }
+    .contact-list a.catalog-link { background: linear-gradient(135deg, #f3d48a, var(--gold)); color: var(--bg); border-color: transparent; font-weight: 650; box-shadow: 0 8px 24px rgba(226, 183, 92, 0.22); }
+    .contact-list a.catalog-link svg { color: var(--bg); }
+    .contact-list a.catalog-link:hover { background: linear-gradient(135deg, #f7dd9c, #e9c26d); }
     .contact-list svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
 
     /* ---------- Footer ---------- */
@@ -454,6 +457,10 @@
           <h2 data-i18n="contact_title">Need a check or repair?</h2>
           <p class="section-sub" data-i18n="contact_sub">Write to us — we will explain the terms and arrange a convenient date for a visit.</p>
           <div class="contact-list">
+            <a class="catalog-link" href="https://wa.me/c/4917661261450" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+              <span data-i18n="catalog">Our catalog on WhatsApp</span>
+            </a>
             <a href="mailto:tora.doktor@gmail.com">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
               <span class="ltr">tora.doktor@gmail.com</span>
@@ -529,6 +536,7 @@
           app_link: "Go to the app website",
           contact_eyebrow: "Contact",
           contact_title: "Need a check or repair?",
+          catalog: "Our catalog on WhatsApp",
           contact_sub: "Write to us — we will explain the terms and arrange a convenient date for a visit."
         },
 
@@ -574,6 +582,7 @@
           app_link: "Zur Website der App",
           contact_eyebrow: "Kontakt",
           contact_title: "Brauchen Sie eine Prüfung oder Reparatur?",
+          catalog: "Unser Katalog auf WhatsApp",
           contact_sub: "Schreiben Sie uns – wir informieren Sie über die Konditionen und vereinbaren einen passenden Termin für den Besuch."
         },
 
@@ -619,6 +628,7 @@
           app_link: "לאתר האפליקציה",
           contact_eyebrow: "צור קשר",
           contact_title: "צריכים בדיקה או תיקון?",
+          catalog: "הקטלוג שלנו בוואטסאפ",
           contact_sub: "כתבו לנו — נסביר את התנאים ונתאם מועד נוח לביקור."
         },
 
@@ -664,6 +674,7 @@
           app_link: "Перейти на сайт приложения",
           contact_eyebrow: "Контакты",
           contact_title: "Нужна проверка или ремонт?",
+          catalog: "Наш каталог в WhatsApp",
           contact_sub: "Напишите нам — расскажем об условиях и подберём удобную дату визита."
         }
       };
