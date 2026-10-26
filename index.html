@@ -9,7 +9,9 @@
   <meta property="og:title" content="Tora Doctor">
   <meta property="og:description" content="Checking, repair and sale of Torah scrolls, mezuzot and tefillin. Clients across Europe and beyond.">
   <meta property="og:url" content="https://toradoctor.com/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='%23e2b75c' font-family='Georgia,serif' font-weight='700'%3ETD%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://toradoctor.com/og-image.jpg">
   <style>
     :root {
       --bg: #0f172a;
@@ -59,14 +61,7 @@
     .header-right { display: flex; align-items: center; gap: 12px; }
 
     .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; direction: ltr; }
-    .logo-mark {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: linear-gradient(135deg, #f3d48a 0%, var(--gold) 50%, #b8892f 100%);
-      color: var(--bg);
-      font-family: Georgia, "Times New Roman", serif; font-weight: 700; font-size: 15px;
-      box-shadow: 0 4px 16px rgba(226, 183, 92, 0.25);
-    }
+    .logo-mark { height: 44px; width: auto; display: block; }
     .logo-name { font-family: Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 600; letter-spacing: 0.3px; }
     .logo-name span { color: var(--gold); }
 
@@ -96,6 +91,7 @@
     .header-cta:hover { border-color: var(--gold-border); background: var(--gold-soft); }
 
     /* ---------- Hero ---------- */
+    .hero-logo { display: block; width: 220px; max-width: 60vw; height: auto; margin: 0 auto 28px; filter: drop-shadow(0 8px 30px rgba(226, 183, 92, 0.18)); }
     .hero { padding: 56px 0 72px; text-align: center; }
     .status {
       display: inline-flex; align-items: center; gap: 8px;
@@ -302,7 +298,7 @@
       .wrap { padding: 0 16px; }
       header { padding: 16px 0; }
       .logo { gap: 9px; }
-      .logo-mark { width: 34px; height: 34px; font-size: 13px; }
+      .logo-mark { height: 36px; }
       .logo-name { font-size: 17px; }
       .lang button { padding: 5px 8px; font-size: 12px; }
       .hero { padding: 36px 0 48px; }
@@ -324,7 +320,7 @@
   <header>
     <div class="wrap">
       <a class="logo" href="/" aria-label="Tora Doctor">
-        <span class="logo-mark" aria-hidden="true">TD</span>
+        <img class="logo-mark" src="logo-mark.webp" alt="" width="58" height="44">
         <span class="logo-name">Tora <span>Doctor</span></span>
       </a>
       <div class="header-right">
@@ -343,6 +339,7 @@
     <!-- Hero -->
     <div class="hero">
       <div class="wrap">
+        <img class="hero-logo" src="logo.webp" alt="Tora Doctor" width="220" height="204">
         <div class="status"><span class="status-dot" aria-hidden="true"></span><span data-i18n="status">Full website coming soon</span></div>
         <h1 data-i18n-html="h1">Checking and restoration of <em>Torah scrolls, mezuzot and tefillin</em></h1>
         <p class="lead" data-i18n="lead">We help communities, synagogues and individuals keep their sacred texts kosher — across Europe and beyond.</p>
