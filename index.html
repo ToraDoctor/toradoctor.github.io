@@ -14,6 +14,7 @@
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Tora Doctor","url":"https://toradoctor.com/","logo":"https://toradoctor.com/icon-512.png","email":"shaul@toradoctor.com","founder":{"@type":"Person","name":"Shaul Nekrich"}}</script>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&display=swap" rel="stylesheet">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:image" content="https://toradoctor.com/og-image.jpg">
   <style>
@@ -227,6 +228,14 @@
     .cer-links a { display: inline-flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 600; color: var(--gold); text-decoration: none; }
     .cer-links a:hover { text-decoration: underline; }
     .cer-links svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .torah-card { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; text-decoration: none; color: inherit; padding: 30px 32px; --accent: var(--gold);
+      background: linear-gradient(135deg, rgba(243, 234, 215, 0.07), rgba(243, 234, 215, 0.01)), var(--card); border-color: rgba(226, 183, 92, 0.25); }
+    .torah-pname { font-family: "Frank Ruhl Libre", "David", "Times New Roman", serif; font-size: 58px; line-height: 1; color: var(--gold); padding-inline-end: 28px; border-inline-end: 1px solid rgba(226, 183, 92, 0.3); }
+    .torah-meta { font-size: 12.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .torah-card h3 { font-size: 21px !important; margin-bottom: 12px !important; }
+    .torah-all { text-align: center; margin-top: 18px; }
+    .torah-all a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    @media (max-width: 600px) { .torah-card { grid-template-columns: 1fr; gap: 12px; padding: 24px 20px; } .torah-pname { font-size: 44px; border: 0; padding: 0; } }
     /* ---------- Apps ---------- */
     .app {
       display: flex; flex-direction: column; gap: 14px;
@@ -497,6 +506,28 @@
       </div>
     </section>
 
+    <!-- Divrei Torah -->
+    <section id="torah">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="tor_eyebrow">Divrei Torah</div>
+          <h2 data-i18n="tor_title">Words of Torah on the weekly parasha</h2>
+          <p class="section-sub" data-i18n="tor_sub">Questions, commentators and answers — in Russian, German and Hebrew.</p>
+        </div>
+        <a class="card torah-card" href="/torah/lech-lecha/">
+          <div class="torah-pname" lang="he" dir="rtl">לֶךְ לְךָ</div>
+          <div class="torah-body">
+            <div class="torah-meta" data-i18n="tor_meta">Weekly parasha · Lech Lecha · 5787</div>
+            <h3 data-i18n="tor_art">Where was Abraham born — and why did he call Sarai his sister?</h3>
+            <span class="app-link"><span data-i18n="tor_read">Read</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </span>
+          </div>
+        </a>
+        <p class="torah-all"><a href="/torah/" data-i18n="tor_all">All divrei Torah →</a></p>
+      </div>
+    </section>
+
     <!-- Apps -->
     <section id="apps">
       <div class="wrap">
@@ -566,6 +597,7 @@
     <div class="wrap">
       <div><span class="ltr">&copy; <span id="year">2026</span> Tora Doctor</span> · <span data-i18n="founder">Founder &amp; developer: Shaul Nekrich</span></div>
       <div class="footer-links">
+        <a href="/torah/" data-i18n="ft_torah">Divrei Torah</a>
         <a href="/maaser/">Maaser Lemehadrin</a>
         <a href="/luach/">LuachPlus</a>
       </div>
@@ -640,6 +672,14 @@
           copy: "Copy",
           copied: "Copied ✓",
           founder: "Founder & developer: Shaul Nekrich",
+          tor_eyebrow: "Divrei Torah",
+          tor_title: "Words of Torah on the weekly parasha",
+          tor_sub: "Questions, commentators and answers — in Russian, German and Hebrew.",
+          tor_meta: "Weekly parasha · Lech Lecha · 5787",
+          tor_art: "Where was Abraham born — and why did he call Sarai his sister?",
+          tor_read: "Read",
+          tor_all: "All divrei Torah →",
+          ft_torah: "Divrei Torah",
           contact_sub: "Write to us — we will explain the terms and arrange a convenient date for a visit."
         },
 
@@ -706,6 +746,14 @@
           copy: "Kopieren",
           copied: "Kopiert ✓",
           founder: "Gründer und Entwickler: Shaul Nekrich",
+          tor_eyebrow: "Worte der Tora",
+          tor_title: "Gedanken zum Wochenabschnitt",
+          tor_sub: "Fragen, Kommentatoren und Antworten – auf Deutsch, Russisch und Hebräisch.",
+          tor_meta: "Wochenabschnitt · Lech Lecha · 5787",
+          tor_art: "Wo wurde Abraham geboren – und warum nannte er Sarai seine Schwester?",
+          tor_read: "Lesen",
+          tor_all: "Alle Beiträge →",
+          ft_torah: "Worte der Tora",
           contact_sub: "Schreiben Sie uns – wir informieren Sie über die Konditionen und vereinbaren einen passenden Termin für den Besuch."
         },
 
@@ -772,6 +820,14 @@
           copy: "העתקה",
           copied: "הועתק ✓",
           founder: "מייסד ומפתח: שאול נקריץ",
+          tor_eyebrow: "דברי תורה",
+          tor_title: "דברי תורה על פרשת השבוע",
+          tor_sub: "קושיות, מפרשים ותירוצים – בעברית, ברוסית ובגרמנית.",
+          tor_meta: "פרשת השבוע · לך לך · 5787",
+          tor_art: "היכן נולד אברהם, ולמה אמר \"אחותי היא\"",
+          tor_read: "לקריאה",
+          tor_all: "כל דברי התורה ←",
+          ft_torah: "דברי תורה",
           contact_sub: "כתבו לנו — נסביר את התנאים ונתאם מועד נוח לביקור."
         },
 
@@ -838,6 +894,14 @@
           copy: "Копировать",
           copied: "Скопировано ✓",
           founder: "Основатель и разработчик — Шауль Некрич",
+          tor_eyebrow: "Слова Торы",
+          tor_title: "Слова Торы на недельную главу",
+          tor_sub: "Вопросы, комментаторы и ответы — на русском, немецком и иврите.",
+          tor_meta: "Недельная глава · Лех-леха · 5787",
+          tor_art: "Где родился Авраам и почему он назвал Сарай сестрой",
+          tor_read: "Читать",
+          tor_all: "Все слова Торы →",
+          ft_torah: "Слова Торы",
           contact_sub: "Напишите нам — расскажем об условиях и подберём удобную дату визита."
         }
       };
