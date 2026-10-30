@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apps &amp; development — Tora Doctor</title>
+  <meta name="description" content="Tora Doctor Apps — free Jewish apps (Maaser Lemehadrin, LuachPlus) and development of apps and websites for communities, organisations and businesses.">
+  <meta name="theme-color" content="#0f172a">
+  <meta property="og:title" content="Tora Doctor Apps">
+  <meta property="og:description" content="Free Jewish apps and development of apps and websites.">
+  <meta property="og:url" content="https://toradoctor.com/apps/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500&display=swap" rel="stylesheet">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:image" content="https://toradoctor.com/og-image.jpg">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-deep: #0b1120;
+      --card: rgba(30, 41, 59, 0.55);
+      --card-hover: rgba(30, 41, 59, 0.85);
+      --border: rgba(148, 163, 184, 0.14);
+      --text: #e2e8f0;
+      --heading: #f8fafc;
+      --muted: #94a3b8;
+      --faint: #64748b;
+      --gold: #e2b75c;
+      --gold-soft: rgba(226, 183, 92, 0.12);
+      --gold-border: rgba(226, 183, 92, 0.45);
+      --blue: #60a5fa;
+      --blue-soft: rgba(96, 165, 250, 0.12);
+      --blue-border: rgba(96, 165, 250, 0.45);
+      --radius: 18px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 45% at 50% -8%, rgba(96, 165, 250, 0.16), transparent 70%),
+        radial-gradient(ellipse 60% 35% at 100% 60%, rgba(226, 183, 92, 0.06), transparent 70%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    .he { font-family: "David", "Frank Ruehl CLM", "Times New Roman", serif; unicode-bidi: isolate; }
+    .ltr { direction: ltr; unicode-bidi: isolate; }
+
+    .wrap { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Header ---------- */
+    header { padding: 22px 0; }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+
+    .logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; direction: ltr; }
+    .logo-mark { height: 44px; width: auto; display: block; }
+    .logo-name { font-family: Georgia, "Times New Roman", serif; font-size: 19px; font-weight: 600; letter-spacing: 0.3px; }
+    .logo-name span { color: var(--gold); }
+
+    .lang {
+      display: flex; gap: 2px; padding: 3px;
+      border: 1px solid var(--border); border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      direction: ltr;
+    }
+    .lang button {
+      appearance: none; border: 0; background: none; cursor: pointer;
+      font: inherit; font-size: 12.5px; font-weight: 700; letter-spacing: 0.4px;
+      color: var(--muted);
+      padding: 6px 10px; border-radius: 999px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .lang button:hover { color: var(--text); }
+    .lang button[aria-pressed="true"] { background: var(--gold-soft); color: var(--gold); }
+    .lang button:focus-visible { outline: 2px solid var(--gold-border); outline-offset: 1px; }
+
+    .header-cta {
+      font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap;
+      padding: 9px 16px; border-radius: 999px;
+      border: 1px solid var(--border); color: var(--text);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .header-cta:hover { border-color: var(--gold-border); background: var(--gold-soft); }
+
+    /* ---------- Hero ---------- */
+    .hero-logo { display: block; width: 220px; max-width: 60vw; height: auto; margin: 0 auto 28px; filter: drop-shadow(0 8px 30px rgba(226, 183, 92, 0.18)); }
+    .hero { padding: 56px 0 72px; text-align: center; }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--muted);
+      padding: 6px 14px; border: 1px solid var(--border); border-radius: 999px;
+      background: rgba(15, 23, 42, 0.6);
+      margin-bottom: 26px;
+    }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); animation: pulse 2s infinite; }
+
+    h1 {
+      font-size: clamp(32px, 6.2vw, 56px);
+      line-height: 1.12; font-weight: 750; letter-spacing: -0.8px;
+      max-width: 800px; margin: 0 auto 20px;
+      background: linear-gradient(180deg, #f8fafc 0%, #cbd5e1 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    h1 em { font-style: normal; background: linear-gradient(135deg, #f3d48a, var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    [dir="rtl"] h1 { letter-spacing: 0; }
+
+    .lead { font-size: clamp(16px, 2.3vw, 19px); color: var(--muted); max-width: 640px; margin: 0 auto 34px; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 22px; border-radius: 12px;
+      font-size: 15px; font-weight: 600; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    }
+    .btn-primary { background: linear-gradient(135deg, #f3d48a, var(--gold)); color: var(--bg); box-shadow: 0 8px 24px rgba(226, 183, 92, 0.22); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(226, 183, 92, 0.32); }
+    .btn-ghost { border: 1px solid var(--border); color: var(--text); background: rgba(30, 41, 59, 0.4); }
+    .btn-ghost:hover { border-color: var(--blue-border); background: var(--blue-soft); transform: translateY(-2px); }
+
+    .trust {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px;
+      margin-top: 44px; font-size: 14px; color: var(--muted);
+    }
+    .trust span { display: inline-flex; align-items: center; gap: 8px; }
+    .trust svg { width: 16px; height: 16px; color: var(--gold); flex-shrink: 0; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 56px 0; }
+    .section-head { text-align: center; margin-bottom: 36px; }
+    .eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    h2 { font-size: clamp(25px, 4vw, 34px); line-height: 1.2; font-weight: 700; color: var(--heading); letter-spacing: -0.4px; }
+    .section-sub { color: var(--muted); max-width: 600px; margin: 12px auto 0; font-size: 16px; }
+
+    .grid { display: grid; gap: 18px; }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      position: relative;
+      padding: 26px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--card);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      transition: transform 0.25s, border-color 0.25s, background 0.25s, box-shadow 0.25s;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--gold-border); background: var(--card-hover); box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35); }
+
+    .icon {
+      width: 46px; height: 46px; border-radius: 13px;
+      display: grid; place-items: center;
+      background: var(--gold-soft); color: var(--gold);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .icon svg { width: 23px; height: 23px; }
+
+    .card h3 { font-size: 17.5px; font-weight: 650; color: var(--heading); margin-bottom: 8px; line-height: 1.35; }
+    .card p { font-size: 15px; color: var(--muted); }
+
+    /* ---------- Software ---------- */
+    .feature {
+      display: grid; grid-template-columns: 1.15fr 1fr; gap: 36px; align-items: center;
+      padding: 40px;
+      border: 1px solid var(--border); border-radius: 24px;
+      background:
+        radial-gradient(circle at 100% 0%, var(--blue-soft), transparent 55%),
+        var(--card);
+    }
+    .feature h2 { margin-bottom: 14px; }
+    .feature p { color: var(--muted); margin-bottom: 12px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: var(--blue); background: var(--blue-soft);
+      border: 1px solid var(--blue-border);
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 16px;
+    }
+    .checklist { list-style: none; display: grid; gap: 12px; }
+    .checklist li {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 16px; border-radius: 12px;
+      background: rgba(15, 23, 42, 0.55); border: 1px solid var(--border);
+      font-size: 15px;
+    }
+    .checklist svg { width: 20px; height: 20px; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+
+    .support-card { display: flex; flex-direction: column; }
+    .support-card p { flex: 1; }
+    .support-actions { margin-top: 20px; }
+    .support-actions .btn { padding: 11px 20px; font-size: 14.5px; }
+    .badge-hot { align-self: flex-start; font-size: 12px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--bg); background: var(--gold); padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
+    .donate { margin-top: 18px; padding: 28px 24px; border: 1px solid var(--gold-border); border-radius: var(--radius); background: radial-gradient(circle at 0% 0%, var(--gold-soft), transparent 60%), var(--card); scroll-margin-top: 20px; }
+    .donate h3 { font-size: 19px; font-weight: 700; color: var(--heading); }
+    .donate-sub { color: var(--muted); font-size: 14.5px; margin: 4px 0 18px; }
+    .donate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .donate-grid .donate-item:last-child { grid-column: 1 / -1; }
+    .donate-item { padding: 16px; border-radius: 14px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); display: grid; gap: 10px; align-content: start; }
+    .donate-label { font-size: 13px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gold); }
+    .donate-label span { text-transform: none; letter-spacing: 0; font-weight: 500; color: var(--muted); }
+    .donate-kv { display: flex; justify-content: space-between; gap: 10px; font-size: 14.5px; color: var(--muted); }
+    .donate-kv span:last-child { color: var(--text); font-weight: 600; }
+    .donate-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 14.5px; color: var(--text); word-break: break-all; }
+    .mono small { font-family: inherit; color: var(--muted); font-size: 12px; margin-inline-end: 6px; }
+    .copy { appearance: none; cursor: pointer; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--gold); background: var(--gold-soft); border: 1px solid var(--gold-border); border-radius: 8px; padding: 5px 10px; transition: background 0.2s; }
+    .copy:hover { background: rgba(226, 183, 92, 0.22); }
+    @media (max-width: 700px) { .donate-grid { grid-template-columns: 1fr; } .donate { padding: 22px 16px; } }
+    .cer-logo { display: block; background: #fff; border-radius: 12px; padding: 10px 14px; margin-bottom: 18px; max-width: 320px; transition: transform 0.2s; }
+    .cer-logo:hover { transform: scale(1.02); }
+    .cer-logo img { display: block; width: 100%; height: auto; }
+    .cer-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; }
+    .cer-links a { display: inline-flex; align-items: center; gap: 7px; font-size: 14.5px; font-weight: 600; color: var(--gold); text-decoration: none; }
+    .cer-links a:hover { text-decoration: underline; }
+    .cer-links svg { width: 17px; height: 17px; flex-shrink: 0; }
+    .torah-card { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; text-decoration: none; color: inherit; padding: 30px 32px; --accent: var(--gold);
+      background: linear-gradient(135deg, rgba(243, 234, 215, 0.07), rgba(243, 234, 215, 0.01)), var(--card); border-color: rgba(226, 183, 92, 0.25); }
+    .torah-pname { font-family: "Frank Ruhl Libre", "David", "Times New Roman", serif; font-size: 58px; line-height: 1; color: var(--gold); padding-inline-end: 28px; border-inline-end: 1px solid rgba(226, 183, 92, 0.3); }
+    .torah-meta { font-size: 12.5px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .torah-card h3 { font-size: 21px !important; margin-bottom: 12px !important; }
+    .torah-all { text-align: center; margin-top: 18px; }
+    .torah-all a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    @media (max-width: 600px) { .torah-card { grid-template-columns: 1fr; gap: 12px; padding: 24px 20px; } .torah-pname { font-size: 44px; border: 0; padding: 0; } }
+    /* ---------- Apps ---------- */
+    .app {
+      display: flex; flex-direction: column; gap: 14px;
+      text-decoration: none; color: inherit; overflow: hidden;
+    }
+    .app::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(circle at 0% 0%, var(--accent-soft), transparent 60%);
+      opacity: 0; transition: opacity 0.3s; pointer-events: none;
+    }
+    .app:hover, .app:focus-visible { border-color: var(--accent-border); outline: none; }
+    .app:hover::before, .app:focus-visible::before { opacity: 1; }
+    .app--maaser { --accent: var(--gold); --accent-soft: var(--gold-soft); --accent-border: var(--gold-border); }
+    .app--luach  { --accent: var(--blue); --accent-soft: var(--blue-soft); --accent-border: var(--blue-border); }
+    .app .icon { background: var(--accent-soft); color: var(--accent); margin-bottom: 0; }
+    .app-logo { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); display: block; }
+    .app-title { font-size: 20px; font-weight: 650; color: var(--heading); line-height: 1.3; }
+    .app-title small { display: block; font-size: 13px; font-weight: 500; letter-spacing: 0.5px; color: var(--accent); margin-top: 3px; }
+    .app p { flex: 1; }
+    .app-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14.5px; font-weight: 600; color: var(--accent); }
+    .app-link svg { width: 16px; height: 16px; transition: transform 0.25s; }
+    .app:hover .app-link svg { transform: translateX(4px); }
+    [dir="rtl"] .app-link svg { transform: scaleX(-1); }
+    [dir="rtl"] .app:hover .app-link svg { transform: scaleX(-1) translateX(4px); }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      text-align: center; padding: 44px 28px;
+      border: 1px solid var(--border); border-radius: 24px;
+      background: radial-gradient(circle at 50% 0%, var(--gold-soft), transparent 60%), var(--card);
+    }
+    .contact .section-sub { margin-bottom: 28px; }
+    .contact-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+    .contact-list a {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 18px; border-radius: 12px;
+      border: 1px solid var(--border); background: rgba(15, 23, 42, 0.6);
+      text-decoration: none; font-size: 15px; font-weight: 500;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+    .contact-list a:hover { border-color: var(--gold-border); background: var(--gold-soft); transform: translateY(-2px); }
+    .contact-list a.catalog-link { background: linear-gradient(135deg, #f3d48a, var(--gold)); color: var(--bg); border-color: transparent; font-weight: 650; box-shadow: 0 8px 24px rgba(226, 183, 92, 0.22); }
+    .contact-list a.catalog-link svg { color: var(--bg); }
+    .contact-list a.catalog-link:hover { background: linear-gradient(135deg, #f7dd9c, #e9c26d); }
+    .contact-list svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 30px 0 36px; margin-top: 24px; border-top: 1px solid rgba(148, 163, 184, 0.08); }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 14px; color: var(--faint); }
+    footer a { text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--gold); }
+    .footer-links { display: flex; gap: 18px; }
+
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(226, 183, 92, 0.55); }
+      70%  { box-shadow: 0 0 0 9px rgba(226, 183, 92, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(226, 183, 92, 0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature { grid-template-columns: 1fr; padding: 30px 24px; gap: 24px; }
+    }
+    @media (max-width: 640px) {
+      .header-cta { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 16px; }
+      header { padding: 16px 0; }
+      .logo { gap: 9px; }
+      .logo-mark { height: 36px; }
+      .logo-name { font-size: 17px; }
+      .lang button { padding: 5px 8px; font-size: 12px; }
+      .hero { padding: 36px 0 48px; }
+      section { padding: 40px 0; }
+      .grid-4, .grid-2 { grid-template-columns: 1fr; }
+      .card { padding: 22px 20px; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .contact { padding: 32px 18px; }
+      .contact-list a { width: 100%; justify-content: center; }
+      footer .wrap { flex-direction: column; align-items: center; text-align: center; }
+    }
+    @media (max-width: 360px) {
+      .logo-name { display: none; }
+    }
+  </style>
+
+  <style>
+    .hero--apps { padding: 48px 0 40px; }
+    .hero--apps h1 { margin-top: 6px; }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card--soon { border-style: dashed; }
+    .card--soon:hover { transform: none; box-shadow: none; border-color: var(--blue-border); }
+    .card .pill { margin-bottom: 14px; }
+    .soon-title { font-size: 19px; font-weight: 650; color: var(--heading); line-height: 1.3; margin-bottom: 6px; }
+    .soon-title small { display: block; font-size: 13px; font-weight: 500; color: var(--blue); margin-top: 3px; }
+    .dev { margin-top: 18px; }
+    .dev .checklist { margin-top: 6px; }
+    .checklist svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 3px; }
+    .back { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); text-decoration: none; margin-bottom: 18px; }
+    .back:hover { color: var(--gold); }
+    [dir="rtl"] .back svg { transform: scaleX(-1); }
+    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="logo" href="/" aria-label="Tora Doctor">
+        <img class="logo-mark" src="/logo-mark.webp" alt="" width="58" height="44">
+        <span class="logo-name">Tora <span>Doctor</span></span>
+      </a>
+      <div class="header-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="de" aria-pressed="false">DE</button>
+          <button type="button" data-lang="he" aria-pressed="false">עב</button>
+          <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+        </div>
+        <a class="header-cta" href="#contact" data-i18n="nav_contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero hero--apps">
+      <div class="wrap">
+        <a class="back" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span data-i18n="back">Tora Doctor — STAM checking</span></a>
+        <div class="eyebrow" data-i18n="eyebrow">Tora Doctor Apps</div>
+        <h1 data-i18n-html="h1">Apps and software <em>for Jewish life</em></h1>
+        <p class="lead" data-i18n="lead">Our own apps and software, and development of apps and websites for communities, organisations and businesses.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact" data-i18n="btn_dev">Order development</a>
+          <a class="btn btn-ghost" href="#apps" data-i18n="btn_apps">Our apps</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="apps">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="apps_eyebrow">Our apps</div>
+          <h2 data-i18n="apps_title">Free apps</h2>
+          <p class="section-sub" data-i18n="apps_sub">Made by Tora Doctor. No ads, no sign-up — your data stays on your phone.</p>
+        </div>
+        <div class="grid grid-2">
+          <a class="card app app--maaser" href="/maaser/">
+            <img class="app-logo" src="/maaser-logo.webp" alt="" width="64" height="64">
+            <div class="app-title">Maaser Lemehadrin<small data-i18n-html="maaser_sub">Maaser calculator · <span class="he">מעשר כספים</span></small></div>
+            <p data-i18n="maaser_text">Track income, expenses and donations — maaser or chomesh is calculated automatically, in several currencies.</p>
+            <span class="app-link"><span data-i18n="app_link">Go to the app website</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="card app app--luach" href="/luach/">
+            <img class="app-logo" src="/luach-logo.webp" alt="" width="64" height="64">
+            <div class="app-title">LuachPlus<small data-i18n-html="luach_sub">Jewish calendar · <span class="he">לוח</span></small></div>
+            <p data-i18n="luach_text">Jewish and Gregorian calendar in one app, with events by Hebrew date and Google Calendar sync.</p>
+            <span class="app-link"><span data-i18n="app_link">Go to the app website</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <div class="card card--soon">
+            <div class="pill" data-i18n="soon">In development</div>
+            <div class="soon-title"><span data-i18n="tc_title">Tora Check</span><small data-i18n-html="tc_sub">For soferim · <span class="he">בדיקת ספר תורה</span></small></div>
+            <p data-i18n="tc_text">Software that checks the entire text of a Torah scroll against reference letters from the same scribe.</p>
+          </div>
+          <div class="card card--soon">
+            <div class="pill" data-i18n="soon">In development</div>
+            <div class="soon-title"><span data-i18n="tf_title">Tefillin check</span><small data-i18n-html="tf_sub">Smartphone app · <span class="he">תפילין</span></small></div>
+            <p data-i18n="tf_text">Checks the batim from photos — squareness and paint — and lets you send the photos to a rabbi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="development">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="eyebrow" data-i18n="dev_eyebrow">Development</div>
+          <h2 data-i18n="dev_title">We build apps and websites for you</h2>
+          <p class="section-sub" data-i18n="dev_sub">For communities, synagogues, organisations and small businesses — from the idea to publication.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div><h3 data-i18n="d1_title">Android apps</h3><p data-i18n="d1_text">Simple, fast apps that work offline and keep data on the device.</p></div>
+          <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3 data-i18n="d2_title">Websites</h3><p data-i18n="d2_text">Modern, fast websites for communities and businesses, adapted for phones.</p></div>
+          <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 14 9-14 9V3Z"/></svg></div><h3 data-i18n="d3_title">Publication</h3><p data-i18n="d3_text">We prepare everything for Google Play: texts, screenshots, privacy policy and the review.</p></div>
+        </div>
+        <ul class="checklist dev">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="c1">Several languages, including Hebrew right-to-left</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="c2">Hebrew calendar, zmanim and Jewish topics handled with knowledge</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="c3">Privacy first: no unnecessary data collection</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span data-i18n="c4">Support and updates after launch</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div class="eyebrow" data-i18n="contact_eyebrow">Contact</div>
+          <h2 data-i18n="contact_title">Have an idea for an app or website?</h2>
+          <p class="section-sub" data-i18n="contact_sub">Write to us — we will discuss the task, the timeline and the price.</p>
+          <div class="contact-list">
+            <a class="catalog-link" href="mailto:apps@toradoctor.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="ltr">apps@toradoctor.com</span></a>
+            <a href="https://wa.me/4917661261450" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg><span class="ltr">+49 176 61261450 (WhatsApp)</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div><span class="ltr">&copy; <span id="year">2026</span> Tora Doctor</span> · <span data-i18n="founder">Founder & developer: Shaul Nekrich</span></div>
+      <div class="footer-links">
+        <a href="/" data-i18n="ft_home">STAM checking</a>
+        <a href="/maaser/">Maaser Lemehadrin</a>
+        <a href="/luach/">LuachPlus</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      var T = {
+ "en": {
+  "_title": "Apps & development — Tora Doctor",
+  "nav_contact": "Contact",
+  "back": "Tora Doctor — STAM checking",
+  "eyebrow": "Tora Doctor Apps",
+  "h1": "Apps and software <em>for Jewish life</em>",
+  "lead": "Our own apps and software, and development of apps and websites for communities, organisations and businesses.",
+  "btn_dev": "Order development",
+  "btn_apps": "Our apps",
+  "apps_eyebrow": "Our apps",
+  "apps_title": "Free apps",
+  "apps_sub": "Made by Tora Doctor. No ads, no sign-up — your data stays on your phone.",
+  "maaser_sub": "Maaser calculator · <span class=\"he\">מעשר כספים</span>",
+  "maaser_text": "Track income, expenses and donations — maaser or chomesh is calculated automatically, in several currencies.",
+  "luach_sub": "Jewish calendar · <span class=\"he\">לוח</span>",
+  "luach_text": "Jewish and Gregorian calendar in one app, with events by Hebrew date and Google Calendar sync.",
+  "app_link": "Go to the app website",
+  "soon": "In development",
+  "tc_title": "Tora Check",
+  "tc_sub": "For soferim · <span class=\"he\">בדיקת ספר תורה</span>",
+  "tc_text": "Software that checks the entire text of a Torah scroll against reference letters from the same scribe.",
+  "tf_title": "Tefillin check",
+  "tf_sub": "Smartphone app · <span class=\"he\">תפילין</span>",
+  "tf_text": "Checks the batim from photos — squareness and paint — and lets you send the photos to a rabbi.",
+  "dev_eyebrow": "Development",
+  "dev_title": "We build apps and websites for you",
+  "dev_sub": "For communities, synagogues, organisations and small businesses — from the idea to publication.",
+  "d1_title": "Android apps",
+  "d1_text": "Simple, fast apps that work offline and keep data on the device.",
+  "d2_title": "Websites",
+  "d2_text": "Modern, fast websites for communities and businesses, adapted for phones.",
+  "d3_title": "Publication",
+  "d3_text": "We prepare everything for Google Play: texts, screenshots, privacy policy and the review.",
+  "c1": "Several languages, including Hebrew right-to-left",
+  "c2": "Hebrew calendar, zmanim and Jewish topics handled with knowledge",
+  "c3": "Privacy first: no unnecessary data collection",
+  "c4": "Support and updates after launch",
+  "contact_eyebrow": "Contact",
+  "contact_title": "Have an idea for an app or website?",
+  "contact_sub": "Write to us — we will discuss the task, the timeline and the price.",
+  "founder": "Founder & developer: Shaul Nekrich",
+  "ft_home": "STAM checking"
+ },
+ "de": {
+  "_title": "Apps & Entwicklung — Tora Doctor",
+  "nav_contact": "Kontakt",
+  "back": "Tora Doctor — STaM-Prüfung",
+  "eyebrow": "Tora Doctor Apps",
+  "h1": "Apps und Software <em>für jüdisches Leben</em>",
+  "lead": "Unsere eigenen Apps und Programme sowie Entwicklung von Apps und Websites für Gemeinden, Organisationen und Unternehmen.",
+  "btn_dev": "Entwicklung anfragen",
+  "btn_apps": "Unsere Apps",
+  "apps_eyebrow": "Unsere Apps",
+  "apps_title": "Kostenlose Apps",
+  "apps_sub": "Von Tora Doctor entwickelt. Keine Werbung, keine Anmeldung — Ihre Daten bleiben auf dem Telefon.",
+  "maaser_sub": "Maaser-Rechner · <span class=\"he\">מעשר כספים</span>",
+  "maaser_text": "Einkommen, Ausgaben und Spenden erfassen — Maaser oder Chomesch wird automatisch berechnet, in mehreren Währungen.",
+  "luach_sub": "Jüdischer Kalender · <span class=\"he\">לוח</span>",
+  "luach_text": "Jüdischer und gregorianischer Kalender in einer App, mit Terminen nach hebräischem Datum und Google-Kalender-Synchronisierung.",
+  "app_link": "Zur Website der App",
+  "soon": "In Entwicklung",
+  "tc_title": "Tora Check",
+  "tc_sub": "Für Soferim · <span class=\"he\">בדיקת ספר תורה</span>",
+  "tc_text": "Software, die den gesamten Text einer Torarolle anhand von Referenzbuchstaben desselben Schreibers prüft.",
+  "tf_title": "Tefillin-Prüfung",
+  "tf_sub": "Smartphone-App · <span class=\"he\">תפילין</span>",
+  "tf_text": "Prüft die Batim anhand von Fotos — Quadratform und Farbe — und sendet die Fotos auf Wunsch an einen Rabbiner.",
+  "dev_eyebrow": "Entwicklung",
+  "dev_title": "Wir entwickeln Apps und Websites für Sie",
+  "dev_sub": "Für Gemeinden, Synagogen, Organisationen und kleine Unternehmen — von der Idee bis zur Veröffentlichung.",
+  "d1_title": "Android-Apps",
+  "d1_text": "Einfache, schnelle Apps, die offline funktionieren und Daten auf dem Gerät behalten.",
+  "d2_title": "Websites",
+  "d2_text": "Moderne, schnelle Websites für Gemeinden und Unternehmen, für Smartphones optimiert.",
+  "d3_title": "Veröffentlichung",
+  "d3_text": "Wir bereiten alles für Google Play vor: Texte, Screenshots, Datenschutzerklärung und die Prüfung.",
+  "c1": "Mehrere Sprachen, auch Hebräisch von rechts nach links",
+  "c2": "Jüdischer Kalender, Zmanim und jüdische Themen mit Fachwissen umgesetzt",
+  "c3": "Datenschutz zuerst: keine unnötige Datenerhebung",
+  "c4": "Betreuung und Updates nach dem Start",
+  "contact_eyebrow": "Kontakt",
+  "contact_title": "Sie haben eine Idee für eine App oder Website?",
+  "contact_sub": "Schreiben Sie uns — wir besprechen Aufgabe, Zeitplan und Preis.",
+  "founder": "Gründer und Entwickler: Shaul Nekrich",
+  "ft_home": "STaM-Prüfung"
+ },
+ "he": {
+  "_title": "אפליקציות ופיתוח — Tora Doctor",
+  "nav_contact": "צור קשר",
+  "back": "Tora Doctor — בדיקת סת״ם",
+  "eyebrow": "Tora Doctor Apps",
+  "h1": "אפליקציות ותוכנה <em>לחיים היהודיים</em>",
+  "lead": "האפליקציות והתוכנות שלנו, ופיתוח אפליקציות ואתרים לקהילות, לארגונים ולעסקים.",
+  "btn_dev": "להזמנת פיתוח",
+  "btn_apps": "האפליקציות שלנו",
+  "apps_eyebrow": "האפליקציות שלנו",
+  "apps_title": "אפליקציות חינמיות",
+  "apps_sub": "פותחו ב־Tora Doctor. בלי פרסומות ובלי הרשמה — המידע נשאר בטלפון שלכם.",
+  "maaser_sub": "חישוב מעשר · <span class=\"he\">מעשר כספים</span>",
+  "maaser_text": "רישום הכנסות, הוצאות ותרומות — המעשר או החומש מחושבים לבד, בכמה מטבעות.",
+  "luach_sub": "לוח עברי · <span class=\"he\">לוח</span>",
+  "luach_text": "לוח עברי ולועזי באפליקציה אחת, עם אירועים לפי תאריך עברי וסנכרון עם Google Calendar.",
+  "app_link": "לאתר האפליקציה",
+  "soon": "בפיתוח",
+  "tc_title": "Tora Check",
+  "tc_sub": "לסופרים · <span class=\"he\">בדיקת ספר תורה</span>",
+  "tc_text": "תוכנה שבודקת את כל הטקסט של ספר תורה לפי אותיות לדוגמה של אותו סופר.",
+  "tf_title": "בדיקת תפילין",
+  "tf_sub": "אפליקציה לטלפון · <span class=\"he\">תפילין</span>",
+  "tf_text": "בודקת את הבתים לפי תמונות — ריבוע וצבע — ומאפשרת לשלוח את התמונות לרב.",
+  "dev_eyebrow": "פיתוח",
+  "dev_title": "אנחנו בונים בשבילכם אפליקציות ואתרים",
+  "dev_sub": "לקהילות, לבתי כנסת, לארגונים ולעסקים קטנים — מהרעיון ועד הפרסום.",
+  "d1_title": "אפליקציות לאנדרואיד",
+  "d1_text": "אפליקציות פשוטות ומהירות שעובדות גם בלי אינטרנט ושומרות את המידע במכשיר.",
+  "d2_title": "אתרים",
+  "d2_text": "אתרים מודרניים ומהירים לקהילות ולעסקים, מותאמים לטלפון.",
+  "d3_title": "פרסום",
+  "d3_text": "אנחנו מכינים הכול ל־Google Play: טקסטים, צילומי מסך, מדיניות פרטיות והבדיקה.",
+  "c1": "כמה שפות, כולל עברית מימין לשמאל",
+  "c2": "לוח עברי, זמנים ונושאים יהודיים — בידע ובהבנה",
+  "c3": "פרטיות קודם כול: בלי איסוף מידע מיותר",
+  "c4": "תמיכה ועדכונים אחרי ההשקה",
+  "contact_eyebrow": "צור קשר",
+  "contact_title": "יש לכם רעיון לאפליקציה או לאתר?",
+  "contact_sub": "כתבו לנו — נדבר על המשימה, הזמנים והמחיר.",
+  "founder": "מייסד ומפתח: שאול נקריץ",
+  "ft_home": "בדיקת סת״ם"
+ },
+ "ru": {
+  "_title": "Приложения и разработка — Tora Doctor",
+  "nav_contact": "Связаться",
+  "back": "Tora Doctor — проверка СТаМ",
+  "eyebrow": "Tora Doctor Apps",
+  "h1": "Приложения и программы <em>для еврейской жизни</em>",
+  "lead": "Наши собственные приложения и программы, а также разработка приложений и сайтов для общин, организаций и бизнеса.",
+  "btn_dev": "Заказать разработку",
+  "btn_apps": "Наши приложения",
+  "apps_eyebrow": "Наши приложения",
+  "apps_title": "Бесплатные приложения",
+  "apps_sub": "Сделаны в Tora Doctor. Без рекламы и регистрации — данные остаются в вашем телефоне.",
+  "maaser_sub": "Расчёт маасера · <span class=\"he\">מעשר כספים</span>",
+  "maaser_text": "Учёт доходов, расходов и пожертвований — маасер или хомеш считается сам, в нескольких валютах.",
+  "luach_sub": "Еврейский календарь · <span class=\"he\">לוח</span>",
+  "luach_text": "Еврейский и григорианский календарь в одном приложении, события по еврейской дате и синхронизация с Google Календарём.",
+  "app_link": "Перейти на сайт приложения",
+  "soon": "В разработке",
+  "tc_title": "Tora Check",
+  "tc_sub": "Для соферов · <span class=\"he\">בדיקת ספר תורה</span>",
+  "tc_text": "Программа, которая проверяет весь текст свитка Торы по образцам букв того же писца.",
+  "tf_title": "Проверка тфилин",
+  "tf_sub": "Приложение для телефона · <span class=\"he\">תפילין</span>",
+  "tf_text": "Проверяет батим по фотографиям — квадратность и краску — и позволяет отправить фото раввину.",
+  "dev_eyebrow": "Разработка",
+  "dev_title": "Делаем приложения и сайты для вас",
+  "dev_sub": "Для общин, синагог, организаций и небольшого бизнеса — от идеи до публикации.",
+  "d1_title": "Приложения для Android",
+  "d1_text": "Простые и быстрые приложения, которые работают без интернета и хранят данные на устройстве.",
+  "d2_title": "Сайты",
+  "d2_text": "Современные быстрые сайты для общин и бизнеса, удобные на телефоне.",
+  "d3_title": "Публикация",
+  "d3_text": "Готовим всё для Google Play: тексты, скриншоты, политику конфиденциальности и прохождение проверки.",
+  "c1": "Несколько языков, включая иврит справа налево",
+  "c2": "Еврейский календарь, зманим и еврейские темы — со знанием дела",
+  "c3": "Приватность прежде всего: никакого лишнего сбора данных",
+  "c4": "Поддержка и обновления после запуска",
+  "contact_eyebrow": "Контакты",
+  "contact_title": "Есть идея приложения или сайта?",
+  "contact_sub": "Напишите нам — обсудим задачу, сроки и стоимость.",
+  "founder": "Основатель и разработчик — Шауль Некрич",
+  "ft_home": "Проверка СТаМ"
+ }
+};
+
+      var SUPPORTED = ["en", "de", "he", "ru"];
+
+      function apply(lang) {
+        var d = T[lang] || T.en;
+        var root = document.documentElement;
+        root.lang = lang;
+        root.dir = lang === "he" ? "rtl" : "ltr";
+        document.title = d._title;
+
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n");
+          if (d[k] != null) el.textContent = d[k];
+        });
+        document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+          var k = el.getAttribute("data-i18n-html");
+          if (d[k] != null) el.innerHTML = d[k];
+        });
+        document.querySelectorAll(".lang button").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+        });
+      }
+
+      function detect() {
+        try {
+          var q = new URLSearchParams(location.search).get("lang");
+          if (q && SUPPORTED.indexOf(q) > -1) return q;
+        } catch (e) {}
+        try {
+          var s = localStorage.getItem("td_lang");
+          if (s && SUPPORTED.indexOf(s) > -1) return s;
+        } catch (e) {}
+        var langs = navigator.languages || [navigator.language || "en"];
+        for (var i = 0; i < langs.length; i++) {
+          var p = String(langs[i]).toLowerCase().slice(0, 2);
+          if (p === "iw") p = "he";
+          if (SUPPORTED.indexOf(p) > -1) return p;
+        }
+        return "en";
+      }
+
+      document.querySelectorAll(".lang button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var l = b.getAttribute("data-lang");
+          apply(l);
+          try { localStorage.setItem("td_lang", l); } catch (e) {}
+        });
+      });
+
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+      apply(detect());
+    })();
+  </script>
+</body>
+</html>
