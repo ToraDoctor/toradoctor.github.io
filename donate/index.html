@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Подарите тфилин или мезузу | Tora Doctor</title>
+  <meta name="description" content="Подарите кашерные тфилин или мезузу еврею, у которого нет возможности их купить. Каждый предмет проверен сойфером Tora Doctor.">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://toradoctor.com/donate/">
+  <meta property="og:title" content="Подарите тфилин или мезузу | Tora Doctor">
+  <meta property="og:description" content="Кашерные тфилин и мезузы для евреев, у которых нет возможности их купить.">
+  <meta property="og:url" content="https://toradoctor.com/donate/">
+  <meta property="og:image" content="https://toradoctor.com/og-image.jpg">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a; --bg2: #0b1120; --card: rgba(30, 41, 59, 0.55); --card-h: rgba(30, 41, 59, 0.85);
+      --border: rgba(148, 163, 184, 0.14); --text: #e2e8f0; --head: #f8fafc; --muted: #94a3b8; --faint: #64748b;
+      --gold: #e2b75c; --gold2: #f3d48a; --gold-soft: rgba(226, 183, 92, 0.12); --gold-b: rgba(226, 183, 92, 0.45);
+      --parch: #f3ead7;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      min-height: 100vh; color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      background-image: radial-gradient(ellipse 70% 45% at 50% -5%, rgba(226, 183, 92, 0.13), transparent 70%), linear-gradient(180deg, var(--bg), var(--bg2));
+      background-attachment: fixed;
+    }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+    .he, [lang="he"] { font-family: "Frank Ruhl Libre", "David", "Times New Roman", serif; }
+    [dir="rtl"] body { font-family: "Frank Ruhl Libre", "David", -apple-system, "Segoe UI", Arial, sans-serif; }
+    .ltr { direction: ltr; unicode-bidi: isolate; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* header */
+    header { padding: 18px 0; border-bottom: 1px solid rgba(148, 163, 184, 0.08); }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; direction: ltr; }
+    .logo img { height: 40px; width: auto; display: block; }
+    .logo span { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 600; }
+    .logo span b { color: var(--gold); font-weight: 600; }
+    .lang { display: flex; gap: 2px; padding: 3px; border: 1px solid var(--border); border-radius: 999px; background: rgba(15, 23, 42, 0.7); direction: ltr; }
+    .lang button { appearance: none; border: 0; background: none; cursor: pointer; font: inherit; font-size: 12.5px; font-weight: 700; color: var(--muted); padding: 6px 10px; border-radius: 999px; }
+    .lang button[aria-pressed="true"] { background: var(--gold-soft); color: var(--gold); }
+
+    /* hero */
+    .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; padding: 56px 0 40px; }
+    .eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    [dir="rtl"] .eyebrow { letter-spacing: 0; font-size: 15px; }
+    h1 { font-size: clamp(32px, 5.4vw, 52px); line-height: 1.12; color: var(--head); letter-spacing: -0.6px; margin-bottom: 18px; }
+    h1 em { font-style: normal; background: linear-gradient(135deg, var(--gold2), var(--gold)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    [dir="rtl"] h1 { letter-spacing: 0; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 520px; margin-bottom: 28px; }
+    [dir="rtl"] .lead { font-size: 20px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 12px; font: inherit; font-size: 15px; font-weight: 600; text-decoration: none; cursor: pointer; border: 1px solid var(--border); background: rgba(30, 41, 59, 0.4); color: var(--text); transition: transform .2s, box-shadow .2s, background .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--gold-b); background: var(--gold-soft); }
+    .btn.gold { background: linear-gradient(135deg, var(--gold2), var(--gold)); color: var(--bg); border-color: transparent; box-shadow: 0 8px 24px rgba(226, 183, 92, 0.22); }
+    .btn.gold:hover { box-shadow: 0 12px 30px rgba(226, 183, 92, 0.32); }
+    .btn svg { width: 18px; height: 18px; }
+    .art { position: relative; aspect-ratio: 1 / 1; max-width: 440px; width: 100%; justify-self: center; }
+    .art svg { width: 100%; height: 100%; display: block; }
+
+    /* sections */
+    section { padding: 48px 0; }
+    .shead { text-align: center; margin-bottom: 32px; }
+    h2 { font-size: clamp(25px, 4vw, 34px); line-height: 1.2; color: var(--head); letter-spacing: -0.4px; }
+    [dir="rtl"] h2 { letter-spacing: 0; font-size: clamp(28px, 4.4vw, 38px); }
+    .ssub { color: var(--muted); max-width: 620px; margin: 12px auto 0; font-size: 16.5px; }
+    .divider { display: flex; align-items: center; gap: 14px; justify-content: center; margin: 0 auto 26px; max-width: 260px; color: var(--gold); }
+    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-b)); }
+    .divider::after { background: linear-gradient(90deg, var(--gold-b), transparent); }
+    .divider svg { width: 20px; height: 20px; }
+
+    .gifts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .gift { position: relative; overflow: hidden; display: grid; grid-template-columns: 120px 1fr; gap: 22px; align-items: center; padding: 26px; border-radius: 20px; background: var(--card); border: 1px solid var(--border); transition: transform .25s, border-color .25s, background .25s; }
+    .gift:hover { transform: translateY(-3px); border-color: var(--gold-b); background: var(--card-h); }
+    .gift .ill { width: 120px; height: 120px; border-radius: 18px; background: radial-gradient(circle at 50% 35%, rgba(243, 234, 215, 0.10), rgba(243, 234, 215, 0.02)); border: 1px solid rgba(226, 183, 92, 0.2); display: grid; place-items: center; }
+    .gift .ill svg { width: 96px; height: 96px; }
+    .gift h3 { font-size: 21px; color: var(--head); line-height: 1.25; margin-bottom: 4px; }
+    .gift .hn { font-family: "Frank Ruhl Libre", "David", serif; color: var(--gold); font-size: 18px; margin-bottom: 8px; }
+    .gift p { color: var(--muted); font-size: 15px; }
+    [dir="rtl"] .gift p { font-size: 17px; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: s; }
+    .step { padding: 24px 20px; border-radius: 18px; background: var(--card); border: 1px solid var(--border); position: relative; }
+    .step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; margin-bottom: 14px;
+      font-family: "Frank Ruhl Libre", Georgia, serif; font-size: 19px; font-weight: 700; color: var(--bg); background: linear-gradient(135deg, var(--gold2), var(--gold)); }
+    .step h3 { font-size: 16.5px; color: var(--head); margin-bottom: 6px; line-height: 1.3; }
+    .step p { font-size: 14.5px; color: var(--muted); }
+    [dir="rtl"] .step h3 { font-size: 19px; } [dir="rtl"] .step p { font-size: 16px; }
+
+    .quote { max-width: 760px; margin: 0 auto; text-align: center; padding: 34px 26px; border-radius: 22px;
+      background: linear-gradient(135deg, rgba(243, 234, 215, 0.08), rgba(243, 234, 215, 0.02)); border: 1px solid rgba(226, 183, 92, 0.25); }
+    .quote .he { font-size: clamp(22px, 3.6vw, 30px); line-height: 1.6; color: var(--parch); direction: rtl; }
+    .quote .tr { color: var(--muted); font-style: italic; margin-top: 10px; font-size: 16px; }
+    .quote .ref { color: var(--gold); font-size: 13.5px; font-weight: 600; margin-top: 8px; }
+
+    .pay { max-width: 860px; margin: 0 auto; padding: 32px 28px; border-radius: 22px; border: 1px solid var(--gold-b);
+      background: radial-gradient(circle at 0% 0%, var(--gold-soft), transparent 60%), var(--card); }
+    .pay-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 18px; }
+    .pi { padding: 18px; border-radius: 14px; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border); display: grid; gap: 10px; align-content: start; }
+    .pi.wide { grid-column: 1 / -1; }
+    .pl { font-size: 13px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--gold); }
+    [dir="rtl"] .pl { letter-spacing: 0; font-size: 15px; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 15px; color: var(--text); word-break: break-all; direction: ltr; unicode-bidi: isolate; }
+    .mono small { font-family: inherit; color: var(--muted); font-size: 12px; margin-inline-end: 6px; }
+    .kv { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 14.5px; }
+    .kv b { color: var(--text); }
+    .copy { appearance: none; cursor: pointer; font: inherit; font-size: 13px; font-weight: 600; color: var(--gold); background: var(--gold-soft); border: 1px solid var(--gold-b); border-radius: 8px; padding: 6px 11px; }
+    .copy:hover { background: rgba(226, 183, 92, 0.22); }
+    .note { margin-top: 18px; padding: 14px 16px; border-radius: 12px; background: rgba(15, 23, 42, 0.5); border: 1px dashed var(--gold-b); color: var(--text); font-size: 15px; }
+    .note b { color: var(--gold); }
+    .pay h2 { text-align: center; }
+    .pay .ssub { text-align: center; }
+
+    .need { display: grid; grid-template-columns: auto 1fr auto; gap: 22px; align-items: center; max-width: 860px; margin: 0 auto; padding: 26px 28px; border-radius: 20px; background: var(--card); border: 1px solid var(--border); }
+    .need .ic { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; background: var(--gold-soft); color: var(--gold); border: 1px solid var(--border); }
+    .need .ic svg { width: 26px; height: 26px; }
+    .need h3 { font-size: 19px; color: var(--head); margin-bottom: 4px; }
+    .need p { color: var(--muted); font-size: 15px; }
+
+    footer { margin-top: 40px; padding: 28px 0 34px; border-top: 1px solid rgba(148, 163, 184, 0.08); font-size: 14px; color: var(--faint); }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+    footer a { text-decoration: none; } footer a:hover { color: var(--gold); }
+
+    @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+    .float { animation: floaty 6s ease-in-out infinite; transform-origin: center; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; gap: 10px; padding-top: 36px; text-align: center; }
+      .hero .lead { margin-left: auto; margin-right: auto; }
+      .hero .actions { justify-content: center; }
+      .art { max-width: 320px; order: -1; }
+      .gifts { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 16px; }
+      .logo img { height: 34px; } .logo span { display: none; }
+      section { padding: 36px 0; }
+      .gift { grid-template-columns: 1fr; text-align: center; padding: 22px 18px; }
+      .gift .ill { margin: 0 auto; }
+      .steps { grid-template-columns: 1fr; }
+      .pay { padding: 24px 16px; } .pay-grid { grid-template-columns: 1fr; }
+      .need { grid-template-columns: 1fr; text-align: center; padding: 22px 18px; }
+      .need .ic { margin: 0 auto; }
+      .actions .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- shared SVG pieces -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dd9a"/><stop offset=".55" stop-color="#e2b75c"/><stop offset="1" stop-color="#b8892f"/></linearGradient>
+      <linearGradient id="gBlack" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b2f3a"/><stop offset=".5" stop-color="#11131a"/><stop offset="1" stop-color="#050608"/></linearGradient>
+      <linearGradient id="gSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b0c10"/><stop offset="1" stop-color="#1a1d26"/></linearGradient>
+      <linearGradient id="gStrap" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#050608"/><stop offset=".5" stop-color="#262a35"/><stop offset="1" stop-color="#050608"/></linearGradient>
+      <linearGradient id="gParch" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e9dcbf"/><stop offset=".5" stop-color="#f7efdc"/><stop offset="1" stop-color="#ddcca8"/></linearGradient>
+      <radialGradient id="gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#e2b75c" stop-opacity=".28"/><stop offset="1" stop-color="#e2b75c" stop-opacity="0"/></radialGradient>
+    </defs>
+  </svg>
+
+  <header><div class="wrap">
+    <a class="logo" href="/"><img src="/logo-mark.webp" alt="" width="58" height="44"><span>Tora <b>Doctor</b></span></a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      <button type="button" data-lang="he" aria-pressed="false">עב</button>
+      <button type="button" data-lang="ru" aria-pressed="true">RU</button>
+    </div>
+  </div></header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div>
+        <div class="eyebrow" data-i="eyebrow">Цдака · Мицва</div>
+        <h1 data-h="h1">Подарите еврею <em>тфилин или мезузу</em></h1>
+        <p class="lead" data-i="lead">Многие евреи хотят исполнять эти заповеди, но не могут позволить себе кашерные тфилин или мезузу. Ваше пожертвование превратится в настоящий свиток, проверенный сойфером, — и в мицву, которую будут исполнять каждый день.</p>
+        <div class="actions">
+          <a class="btn gold" href="#pay" data-i="cta">Сделать пожертвование</a>
+          <a class="btn" href="#how" data-i="cta2">Как это работает</a>
+        </div>
+      </div>
+
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 440 440">
+          <circle cx="220" cy="220" r="210" fill="url(#gGlow)"/>
+          <circle cx="220" cy="220" r="178" fill="none" stroke="#e2b75c" stroke-opacity=".22" stroke-width="1.2"/>
+          <circle cx="220" cy="220" r="150" fill="none" stroke="#e2b75c" stroke-opacity=".12" stroke-width="1" stroke-dasharray="2 7"/>
+          <!-- doorpost -->
+          <rect x="300" y="40" width="58" height="360" rx="6" fill="#1b2433" stroke="#e2b75c" stroke-opacity=".25"/>
+          <rect x="300" y="40" width="10" height="360" fill="#ffffff" fill-opacity=".03"/>
+          <!-- mezuzah case, slanted like on a doorpost -->
+          <g class="float" style="animation-delay:-2s">
+            <g transform="rotate(-10 329 170)">
+              <rect x="313" y="92" width="32" height="160" rx="15" fill="url(#gGold)"/>
+              <rect x="318" y="98" width="22" height="148" rx="11" fill="none" stroke="#fff6dc" stroke-opacity=".45"/>
+              <rect x="321" y="112" width="16" height="34" rx="3" fill="#0f172a" fill-opacity=".85"/>
+              <text x="329" y="137" text-anchor="middle" font-family="Frank Ruhl Libre, David, serif" font-size="22" font-weight="700" fill="#e2b75c">ש</text>
+              <circle cx="329" cy="102" r="2.4" fill="#7a5a1d"/><circle cx="329" cy="242" r="2.4" fill="#7a5a1d"/>
+              <path d="M321 170h16M321 190h16M321 210h16" stroke="#8a6421" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+            </g>
+          </g>
+          <!-- tefillin shel rosh -->
+          <g class="float">
+            <!-- straps -->
+            <path d="M118 318 C 80 350, 70 392, 96 418" fill="none" stroke="url(#gStrap)" stroke-width="13" stroke-linecap="round"/>
+            <path d="M206 318 C 236 352, 262 380, 250 420" fill="none" stroke="url(#gStrap)" stroke-width="13" stroke-linecap="round"/>
+            <path d="M90 300 C 60 250, 70 190, 120 170" fill="none" stroke="url(#gStrap)" stroke-width="12" stroke-linecap="round" opacity=".9"/>
+            <!-- titura (base) -->
+            <path d="M84 292 L 162 316 L 248 292 L 170 270 Z" fill="#14161d" stroke="#3a3f4d" stroke-width="1"/>
+            <path d="M84 292 L 162 316 L 162 330 L 84 306 Z" fill="#0a0b0f"/>
+            <path d="M162 316 L 248 292 L 248 306 L 162 330 Z" fill="#191c25"/>
+            <!-- maabarta -->
+            <path d="M162 316 L 210 302 L 210 312 L 162 326 Z" fill="#262a35"/>
+            <!-- bayit cube -->
+            <path d="M104 186 L 166 206 L 166 300 L 104 280 Z" fill="url(#gSide)"/>
+            <path d="M166 206 L 230 186 L 230 280 L 166 300 Z" fill="url(#gBlack)"/>
+            <path d="M104 186 L 168 166 L 230 186 L 166 206 Z" fill="#2c303c"/>
+            <path d="M104 186 L 168 166 L 230 186" fill="none" stroke="#565c6c" stroke-width="1.2"/>
+            <path d="M166 206 L 166 300" stroke="#444a58" stroke-width="1"/>
+            <!-- compartment lines on top -->
+            <path d="M120 181 L 182 201 M136 176 L 198 196 M152 171 L 214 191" stroke="#14161d" stroke-width="1.6"/>
+            <!-- shin on side -->
+            <text x="198" y="262" text-anchor="middle" font-family="Frank Ruhl Libre, David, serif" font-size="58" font-weight="700" fill="url(#gGold)" transform="skewY(-17) translate(0 60)">ש</text>
+            <!-- highlight -->
+            <path d="M172 210 L 224 194 L 224 206 L 172 222 Z" fill="#fff" fill-opacity=".05"/>
+          </g>
+          <!-- sparkles -->
+          <g fill="#f3d48a">
+            <path d="M80 110 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" opacity=".8"/>
+            <path d="M262 70 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2z" opacity=".6"/>
+            <path d="M390 330 l2.5 6 6 2.5 -6 2.5 -2.5 6 -2.5 -6 -6 -2.5 6 -2.5z" opacity=".7"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- QUOTE -->
+    <section>
+      <div class="quote">
+        <div class="he" lang="he">וּקְשַׁרְתָּם לְאוֹת עַל יָדֶךָ, וְהָיוּ לְטֹטָפֹת בֵּין עֵינֶיךָ.<br>וּכְתַבְתָּם עַל מְזֻזוֹת בֵּיתֶךָ וּבִשְׁעָרֶיךָ.</div>
+        <div class="tr" data-i="q_tr">«И повяжи их знаком на руку свою, и будут они знаками между глазами твоими. И напиши их на косяках дома твоего и на воротах твоих».</div>
+        <div class="ref" data-i="q_ref">Дварим 6:8–9</div>
+      </div>
+    </section>
+
+    <!-- WHAT YOU GIVE -->
+    <section>
+      <div class="shead">
+        <div class="divider"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 3c-6 1-11 6-13 12l-2 6 6-2c6-2 11-7 12-13l-3 1z"/><path d="M5 21l7-7"/></svg></div>
+        <h2 data-i="g_title">Что вы дарите</h2>
+        <p class="ssub" data-i="g_sub">Каждый предмет перед передачей проверяет сойфер Tora Doctor — глазами и на компьютере.</p>
+      </div>
+      <div class="gifts">
+        <div class="gift">
+          <div class="ill" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <path d="M28 76 C 18 84, 16 92, 22 98" fill="none" stroke="url(#gStrap)" stroke-width="5" stroke-linecap="round"/>
+              <path d="M64 76 C 74 84, 80 90, 78 98" fill="none" stroke="url(#gStrap)" stroke-width="5" stroke-linecap="round"/>
+              <path d="M18 70 L 46 80 L 82 70 L 54 61 Z" fill="#14161d" stroke="#3a3f4d" stroke-width=".6"/>
+              <path d="M18 70 L 46 80 L 46 85 L 18 75 Z" fill="#0a0b0f"/><path d="M46 80 L 82 70 L 82 75 L 46 85 Z" fill="#191c25"/>
+              <path d="M24 30 L 48 38 L 48 76 L 24 68 Z" fill="url(#gSide)"/>
+              <path d="M48 38 L 74 30 L 74 68 L 48 76 Z" fill="url(#gBlack)"/>
+              <path d="M24 30 L 50 22 L 74 30 L 48 38 Z" fill="#2c303c"/>
+              <path d="M24 30 L 50 22 L 74 30" fill="none" stroke="#5a6070" stroke-width=".8"/>
+              <text x="61" y="64" text-anchor="middle" font-family="Frank Ruhl Libre, David, serif" font-size="24" font-weight="700" fill="url(#gGold)">ש</text>
+            </svg>
+          </div>
+          <div>
+            <h3 data-i="t_title">Тфилин</h3>
+            <div class="hn" lang="he">תְּפִלִּין</div>
+            <p data-i="t_text">Кашерные тфилин на руку и на голову. Еврей, который получит их от вас, сможет накладывать тфилин каждый будний день — всю жизнь.</p>
+          </div>
+        </div>
+        <div class="gift">
+          <div class="ill" aria-hidden="true">
+            <svg viewBox="0 0 100 100">
+              <rect x="62" y="6" width="22" height="90" rx="3" fill="#1b2433" stroke="#e2b75c" stroke-opacity=".3" stroke-width=".8"/>
+              <g transform="rotate(-18 50 50)">
+                <rect x="40" y="14" width="18" height="74" rx="8.5" fill="url(#gGold)"/>
+                <rect x="43" y="18" width="12" height="66" rx="6" fill="none" stroke="#fff6dc" stroke-opacity=".5" stroke-width=".8"/>
+                <rect x="44" y="24" width="10" height="17" rx="2" fill="#0f172a" fill-opacity=".85"/>
+                <text x="49" y="37" text-anchor="middle" font-family="Frank Ruhl Libre, David, serif" font-size="12" font-weight="700" fill="#e2b75c">ש</text>
+                <path d="M44 52h10M44 62h10M44 72h10" stroke="#8a6421" stroke-opacity=".55" stroke-width="1.4" stroke-linecap="round"/>
+              </g>
+              <path d="M10 92 C 16 86, 24 86, 30 92" fill="none" stroke="#e2b75c" stroke-opacity=".3"/>
+            </svg>
+          </div>
+          <div>
+            <h3 data-i="m_title">Мезуза</h3>
+            <div class="hn" lang="he">מְזוּזָה</div>
+            <p data-i="m_text">Кашерный свиток мезузы, написанный сойфером на пергаменте. Он будет охранять еврейский дом и напоминать о Всевышнем при каждом входе и выходе.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section id="how">
+      <div class="shead">
+        <h2 data-i="h_title">Как это работает</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3 data-i="s1_t">Вы делаете пожертвование</h3><p data-i="s1_p">Через PayPal, Bit или банковским переводом — с пометкой «Тфилин» или «Мезуза».</p></div>
+        <div class="step"><h3 data-i="s2_t">Мы подбираем предмет</h3><p data-i="s2_p">Сойфер Tora Doctor выбирает кашерные тфилин или мезузу и проверяет каждую букву.</p></div>
+        <div class="step"><h3 data-i="s3_t">Передаём тому, кому нужно</h3><p data-i="s3_p">Мы бываем во многих общинах Европы и знаем, кому подарок действительно нужен.</p></div>
+        <div class="step"><h3 data-i="s4_t">Мицва живёт</h3><p data-i="s4_p">Каждый день, когда тфилин надевают, а мезуза стоит на двери, — это и ваша заслуга.</p></div>
+      </div>
+    </section>
+
+    <!-- PAY -->
+    <section id="pay">
+      <div class="pay">
+        <h2 data-i="p_title">Сделать пожертвование</h2>
+        <p class="ssub" data-i="p_sub">Можно пожертвовать полную стоимость или любую часть — мы соберём недостающее.</p>
+        <div class="pay-grid">
+          <div class="pi">
+            <div class="pl">PayPal</div>
+            <div class="row"><span class="mono">shaul@toradoctor.com</span><button type="button" class="copy" data-copy="shaul@toradoctor.com" data-i="copy">Копировать</button></div>
+          </div>
+          <div class="pi">
+            <div class="pl">Bit <span data-i="bit_note" style="text-transform:none;letter-spacing:0;color:var(--muted);font-weight:500">(Израиль)</span></div>
+            <div class="row"><span class="mono">058-466-4488</span><button type="button" class="copy" data-copy="0584664488" data-i="copy">Копировать</button></div>
+          </div>
+          <div class="pi wide">
+            <div class="pl" data-i="bank">Банковский перевод</div>
+            <div class="kv"><span data-i="holder">Получатель</span><b class="ltr">Tora Doctor</b></div>
+            <div class="row"><span class="mono"><small>IBAN</small>BE87 9054 7023 5694</span><button type="button" class="copy" data-copy="BE87905470235694" data-i="copy">Копировать</button></div>
+            <div class="row"><span class="mono"><small>SWIFT / BIC</small>TRWIBEB1XXX</span><button type="button" class="copy" data-copy="TRWIBEB1XXX" data-i="copy">Копировать</button></div>
+          </div>
+        </div>
+        <p class="note" data-h="p_note"><b>Укажите в комментарии:</b> «Тфилин» или «Мезуза». Если хотите посвятить подарок памяти близкого человека или в честь семейного события — напишите и это.</p>
+      </div>
+    </section>
+
+    <!-- NEED -->
+    <section>
+      <div class="need">
+        <div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></svg></div>
+        <div>
+          <h3 data-i="n_title">Знаете, кому нужны тфилин или мезуза?</h3>
+          <p data-i="n_text">Раввины и руководители общин, родственники и друзья — напишите нам. Мы постараемся помочь.</p>
+        </div>
+        <a class="btn gold" href="https://wa.me/4917661261450" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20.5l1.6-5.2A8.5 8.5 0 1 1 21 11.5Z"/></svg>WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">
+    <div><a href="/">© <span id="yr">2026</span> Tora Doctor</a> · <span data-i="founder">Основатель и разработчик — Шауль Некрич</span></div>
+    <div><a href="mailto:shaul@toradoctor.com">shaul@toradoctor.com</a></div>
+  </div></footer>
+
+  <script>
+  (function () {
+    var T = {
+      ru: {
+        _title: "Подарите тфилин или мезузу | Tora Doctor",
+        eyebrow: "Цдака · Мицва",
+        h1: "Подарите еврею <em>тфилин или мезузу</em>",
+        lead: "Многие евреи хотят исполнять эти заповеди, но не могут позволить себе кашерные тфилин или мезузу. Ваше пожертвование превратится в настоящий свиток, проверенный сойфером, — и в мицву, которую будут исполнять каждый день.",
+        cta: "Сделать пожертвование", cta2: "Как это работает",
+        q_tr: "«И повяжи их знаком на руку свою, и будут они знаками между глазами твоими. И напиши их на косяках дома твоего и на воротах твоих».",
+        q_ref: "Дварим 6:8–9",
+        g_title: "Что вы дарите",
+        g_sub: "Каждый предмет перед передачей проверяет сойфер Tora Doctor — глазами и на компьютере.",
+        t_title: "Тфилин",
+        t_text: "Кашерные тфилин на руку и на голову. Еврей, который получит их от вас, сможет накладывать тфилин каждый будний день — всю жизнь.",
+        m_title: "Мезуза",
+        m_text: "Кашерный свиток мезузы, написанный сойфером на пергаменте. Он будет охранять еврейский дом и напоминать о Всевышнем при каждом входе и выходе.",
+        h_title: "Как это работает",
+        s1_t: "Вы делаете пожертвование", s1_p: "Через PayPal, Bit или банковским переводом — с пометкой «Тфилин» или «Мезуза».",
+        s2_t: "Мы подбираем предмет", s2_p: "Сойфер Tora Doctor выбирает кашерные тфилин или мезузу и проверяет каждую букву.",
+        s3_t: "Передаём тому, кому нужно", s3_p: "Мы бываем во многих общинах Европы и знаем, кому подарок действительно нужен.",
+        s4_t: "Мицва живёт", s4_p: "Каждый день, когда тфилин надевают, а мезуза стоит на двери, — это и ваша заслуга.",
+        p_title: "Сделать пожертвование",
+        p_sub: "Можно пожертвовать полную стоимость или любую часть — мы соберём недостающее.",
+        bit_note: "(Израиль)", bank: "Банковский перевод", holder: "Получатель", copy: "Копировать", copied: "Скопировано ✓",
+        p_note: "<b>Укажите в комментарии:</b> «Тфилин» или «Мезуза». Если хотите посвятить подарок памяти близкого человека или в честь семейного события — напишите и это.",
+        n_title: "Знаете, кому нужны тфилин или мезуза?",
+        n_text: "Раввины и руководители общин, родственники и друзья — напишите нам. Мы постараемся помочь.",
+        founder: "Основатель и разработчик — Шауль Некрич"
+      },
+      de: {
+        _title: "Tefillin oder Mesusa schenken | Tora Doctor",
+        eyebrow: "Zedaka · Mizwa",
+        h1: "Schenken Sie einem Juden <em>Tefillin oder eine Mesusa</em>",
+        lead: "Viele Juden möchten diese Gebote erfüllen, können sich aber koschere Tefillin oder eine Mesusa nicht leisten. Ihre Spende wird zu einer echten, von einem Sofer geprüften Schriftrolle – und zu einer Mizwa, die jeden Tag erfüllt wird.",
+        cta: "Jetzt spenden", cta2: "So funktioniert es",
+        q_tr: "„Und du sollst sie als Zeichen an deine Hand binden, und sie sollen als Merkzeichen zwischen deinen Augen sein. Und du sollst sie an die Pfosten deines Hauses und an deine Tore schreiben.“",
+        q_ref: "Dewarim 6,8–9",
+        g_title: "Was Sie schenken",
+        g_sub: "Jedes Stück wird vor der Übergabe von einem Sofer von Tora Doctor geprüft – mit dem Auge und am Computer.",
+        t_title: "Tefillin",
+        t_text: "Koschere Tefillin für Hand und Kopf. Wer sie von Ihnen erhält, kann jeden Werktag Tefillin legen – ein Leben lang.",
+        m_title: "Mesusa",
+        m_text: "Eine koschere Mesusa-Rolle, von einem Sofer auf Pergament geschrieben. Sie behütet ein jüdisches Zuhause und erinnert bei jedem Kommen und Gehen an G-tt.",
+        h_title: "So funktioniert es",
+        s1_t: "Sie spenden", s1_p: "Per PayPal, Bit oder Banküberweisung – mit dem Vermerk „Tefillin“ oder „Mesusa“.",
+        s2_t: "Wir wählen aus", s2_p: "Ein Sofer von Tora Doctor wählt koschere Tefillin oder eine Mesusa und prüft jeden Buchstaben.",
+        s3_t: "Wir übergeben", s3_p: "Wir sind in vielen Gemeinden Europas unterwegs und wissen, wo das Geschenk wirklich gebraucht wird.",
+        s4_t: "Die Mizwa lebt", s4_p: "Jeder Tag, an dem die Tefillin gelegt werden und die Mesusa an der Tür hängt, ist auch Ihr Verdienst.",
+        p_title: "Spenden",
+        p_sub: "Sie können den vollen Betrag oder einen beliebigen Teil spenden – den Rest sammeln wir.",
+        bit_note: "(Israel)", bank: "Banküberweisung", holder: "Kontoinhaber", copy: "Kopieren", copied: "Kopiert ✓",
+        p_note: "<b>Bitte als Verwendungszweck angeben:</b> „Tefillin“ oder „Mesusa“. Wenn Sie das Geschenk dem Andenken eines lieben Menschen oder einem Familienereignis widmen möchten, schreiben Sie auch das dazu.",
+        n_title: "Kennen Sie jemanden, der Tefillin oder eine Mesusa braucht?",
+        n_text: "Rabbiner und Gemeindevorstände, Angehörige und Freunde – schreiben Sie uns. Wir versuchen zu helfen.",
+        founder: "Gründer und Entwickler: Shaul Nekrich"
+      },
+      en: {
+        _title: "Give tefillin or a mezuzah | Tora Doctor",
+        eyebrow: "Tzedakah · Mitzvah",
+        h1: "Give a fellow Jew <em>tefillin or a mezuzah</em>",
+        lead: "Many Jews want to keep these mitzvot but cannot afford kosher tefillin or a mezuzah. Your donation becomes a real scroll checked by a sofer — and a mitzvah performed every day.",
+        cta: "Donate now", cta2: "How it works",
+        q_tr: "“Bind them as a sign upon your hand, and they shall be as frontlets between your eyes. And write them on the doorposts of your house and on your gates.”",
+        q_ref: "Devarim 6:8–9",
+        g_title: "What you give",
+        g_sub: "Every item is checked by a Tora Doctor sofer before it is handed over — by eye and by computer.",
+        t_title: "Tefillin",
+        t_text: "Kosher tefillin for the arm and the head. The person who receives them from you can put on tefillin every weekday — for a lifetime.",
+        m_title: "Mezuzah",
+        m_text: "A kosher mezuzah scroll, handwritten by a sofer on parchment. It guards a Jewish home and recalls G-d at every coming and going.",
+        h_title: "How it works",
+        s1_t: "You donate", s1_p: "By PayPal, Bit or bank transfer — with the note “Tefillin” or “Mezuzah”.",
+        s2_t: "We choose the item", s2_p: "A Tora Doctor sofer selects kosher tefillin or a mezuzah and checks every letter.",
+        s3_t: "We hand it over", s3_p: "We visit many communities across Europe and know where the gift is truly needed.",
+        s4_t: "The mitzvah lives on", s4_p: "Every day the tefillin are worn and the mezuzah is on the door, the merit is yours too.",
+        p_title: "Donate",
+        p_sub: "You can give the full cost or any part of it — we will gather the rest.",
+        bit_note: "(Israel)", bank: "Bank transfer", holder: "Account holder", copy: "Copy", copied: "Copied ✓",
+        p_note: "<b>Please add a note:</b> “Tefillin” or “Mezuzah”. If you would like to dedicate the gift in memory of a loved one or in honour of a family occasion, write that too.",
+        n_title: "Know someone who needs tefillin or a mezuzah?",
+        n_text: "Rabbis and community leaders, family and friends — write to us. We will try to help.",
+        founder: "Founder & developer: Shaul Nekrich"
+      },
+      he: {
+        _title: "תרומת תפילין ומזוזות | Tora Doctor",
+        eyebrow: "צדקה · מצווה",
+        h1: "זַכּוּ יהודי <em>בתפילין או במזוזה</em>",
+        lead: "יהודים רבים רוצים לקיים מצוות אלו, אך אין ידם משגת לקנות תפילין או מזוזה כשרות. תרומתכם תהפוך לפרשיות של ממש, בדוקות בידי סופר – ולמצווה שתתקיים בכל יום.",
+        cta: "לתרומה", cta2: "איך זה עובד",
+        q_tr: "",
+        q_ref: "דברים ו, ח–ט",
+        g_title: "מה אתם נותנים",
+        g_sub: "כל פריט נבדק לפני מסירתו בידי סופר של Tora Doctor – בעין ובמחשב.",
+        t_title: "תפילין",
+        t_text: "תפילין של יד ושל ראש, כשרות. מי שיקבל אותן מכם יוכל להניח תפילין בכל יום חול – כל ימי חייו.",
+        m_title: "מזוזה",
+        m_text: "קלף מזוזה כשר, כתוב בידי סופר. הוא ישמור על בית יהודי ויזכיר את הבורא בכל יציאה וכניסה.",
+        h_title: "איך זה עובד",
+        s1_t: "אתם תורמים", s1_p: "ב־PayPal, בביט או בהעברה בנקאית – עם הערה „תפילין” או „מזוזה”.",
+        s2_t: "אנחנו בוחרים", s2_p: "סופר של Tora Doctor בוחר תפילין או מזוזה כשרות ובודק כל אות.",
+        s3_t: "אנחנו מוסרים", s3_p: "אנו מבקרים בקהילות רבות באירופה ויודעים היכן המתנה נחוצה באמת.",
+        s4_t: "המצווה חיה", s4_p: "בכל יום שבו מניחים את התפילין והמזוזה על הפתח – הזכות גם שלכם.",
+        p_title: "לתרומה",
+        p_sub: "אפשר לתרום את הסכום המלא או כל חלק ממנו – את השאר נשלים.",
+        bit_note: "(ישראל)", bank: "העברה בנקאית", holder: "שם בעל החשבון", copy: "העתקה", copied: "הועתק ✓",
+        p_note: "<b>נא לציין בהערה:</b> „תפילין” או „מזוזה”. אם תרצו להקדיש את המתנה לעילוי נשמת יקיר או לכבוד שמחה משפחתית – כתבו גם זאת.",
+        n_title: "מכירים מישהו שזקוק לתפילין או למזוזה?",
+        n_text: "רבנים וראשי קהילות, בני משפחה וחברים – כתבו לנו. ננסה לעזור.",
+        founder: "מייסד ומפתח: שאול נקריץ"
+      }
+    };
+    var SUP = ["en", "de", "he", "ru"];
+    function apply(l) {
+      var d = T[l] || T.ru, r = document.documentElement;
+      r.lang = l; r.dir = l === "he" ? "rtl" : "ltr"; document.title = d._title;
+      document.querySelectorAll("[data-i]").forEach(function (e) { var k = e.getAttribute("data-i"); if (d[k] != null) { e.textContent = d[k]; e.hidden = d[k] === ""; } });
+      document.querySelectorAll("[data-h]").forEach(function (e) { var k = e.getAttribute("data-h"); if (d[k] != null) e.innerHTML = d[k]; });
+      document.querySelectorAll(".lang button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-lang") === l ? "true" : "false"); });
+      window.__l = l;
+    }
+    function pick() {
+      try { var q = new URLSearchParams(location.search).get("lang"); if (SUP.indexOf(q) > -1) return q; } catch (e) {}
+      try { var s = localStorage.getItem("td_lang"); if (SUP.indexOf(s) > -1) return s; } catch (e) {}
+      var L = navigator.languages || [navigator.language || "ru"];
+      for (var i = 0; i < L.length; i++) { var p = String(L[i]).slice(0, 2).toLowerCase(); if (p === "iw") p = "he"; if (SUP.indexOf(p) > -1) return p; }
+      return "ru";
+    }
+    document.querySelectorAll(".lang button").forEach(function (b) {
+      b.addEventListener("click", function () { var l = b.getAttribute("data-lang"); apply(l); try { localStorage.setItem("td_lang", l); } catch (e) {} });
+    });
+    document.querySelectorAll(".copy").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var v = b.getAttribute("data-copy"), d = T[window.__l] || T.ru;
+        function ok() { b.textContent = d.copied; setTimeout(function () { b.textContent = d.copy; }, 1800); }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(ok, function () {});
+        else { var t = document.createElement("textarea"); t.value = v; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); ok(); } catch (e) {} document.body.removeChild(t); }
+      });
+    });
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    apply(pick());
+  })();
+  </script>
+</body>
+</html>
