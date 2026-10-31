@@ -88,6 +88,11 @@
     .gift h3 { font-size: 21px; color: var(--head); line-height: 1.25; margin-bottom: 4px; }
     .gift .hn { font-family: "Frank Ruhl Libre", "David", serif; color: var(--gold); font-size: 18px; margin-bottom: 8px; }
     .gift p { color: var(--muted); font-size: 15px; }
+    .gift .price { display: inline-flex; align-items: baseline; gap: 8px; margin: 2px 0 10px; padding: 5px 12px; border-radius: 999px; background: var(--gold-soft); border: 1px solid var(--gold-b); }
+    .gift .price span { font-size: 12.5px; font-weight: 700; letter-spacing: .6px; text-transform: uppercase; color: var(--muted); }
+    [dir="rtl"] .gift .price span { letter-spacing: 0; font-size: 14px; }
+    .gift .price b { font-size: 19px; color: var(--gold); }
+    [dir="rtl"] .gift .hn { display: none; }
     [dir="rtl"] .gift p { font-size: 17px; }
 
     .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; counter-reset: s; }
@@ -282,6 +287,7 @@
           </div>
           <div>
             <h3 data-i="t_title">Тфилин</h3>
+            <div class="price"><span data-i="price_lbl">Стоимость</span> <b class="ltr">800 €</b></div>
             <div class="hn" lang="he">תְּפִלִּין</div>
             <p data-i="t_text">Кашерные тфилин на руку и на голову. Еврей, который получит их от вас, сможет накладывать тфилин каждый будний день — всю жизнь.</p>
           </div>
@@ -302,6 +308,7 @@
           </div>
           <div>
             <h3 data-i="m_title">Мезуза</h3>
+            <div class="price"><span data-i="price_lbl">Стоимость</span> <b class="ltr">55 €</b></div>
             <div class="hn" lang="he">מְזוּזָה</div>
             <p data-i="m_text">Кашерный свиток мезузы, написанный сойфером на пергаменте. Он будет охранять еврейский дом и напоминать о Всевышнем при каждом входе и выходе.</p>
           </div>
@@ -388,7 +395,8 @@
         s3_t: "Передаём тому, кому нужно", s3_p: "Мы бываем во многих общинах Европы и знаем, кому подарок действительно нужен.",
         s4_t: "Мицва живёт", s4_p: "Каждый день, когда тфилин надевают, а мезуза стоит на двери, — это и ваша заслуга.",
         p_title: "Сделать пожертвование",
-        p_sub: "Можно пожертвовать полную стоимость или любую часть — мы соберём недостающее.",
+        price_lbl: "Стоимость",
+        p_sub: "Можно пожертвовать полную стоимость — 800 € за тфилин или 55 € за мезузу — или любую часть: мы соберём недостающее.",
         bit_note: "(Израиль)", bank: "Банковский перевод", holder: "Получатель", copy: "Копировать", copied: "Скопировано ✓",
         p_note: "<b>Укажите в комментарии:</b> «Тфилин» или «Мезуза». Если хотите посвятить подарок памяти близкого человека или в честь семейного события — напишите и это.",
         n_title: "Знаете, кому нужны тфилин или мезуза?",
@@ -415,7 +423,8 @@
         s3_t: "Wir übergeben", s3_p: "Wir sind in vielen Gemeinden Europas unterwegs und wissen, wo das Geschenk wirklich gebraucht wird.",
         s4_t: "Die Mizwa lebt", s4_p: "Jeder Tag, an dem die Tefillin gelegt werden und die Mesusa an der Tür hängt, ist auch Ihr Verdienst.",
         p_title: "Spenden",
-        p_sub: "Sie können den vollen Betrag oder einen beliebigen Teil spenden – den Rest sammeln wir.",
+        price_lbl: "Kosten",
+        p_sub: "Sie können den vollen Betrag spenden – 800 € für Tefillin oder 55 € für eine Mesusa – oder einen beliebigen Teil davon: Den Rest sammeln wir.",
         bit_note: "(Israel)", bank: "Banküberweisung", holder: "Kontoinhaber", copy: "Kopieren", copied: "Kopiert ✓",
         p_note: "<b>Bitte als Verwendungszweck angeben:</b> „Tefillin“ oder „Mesusa“. Wenn Sie das Geschenk dem Andenken eines lieben Menschen oder einem Familienereignis widmen möchten, schreiben Sie auch das dazu.",
         n_title: "Kennen Sie jemanden, der Tefillin oder eine Mesusa braucht?",
@@ -442,7 +451,8 @@
         s3_t: "We hand it over", s3_p: "We visit many communities across Europe and know where the gift is truly needed.",
         s4_t: "The mitzvah lives on", s4_p: "Every day the tefillin are worn and the mezuzah is on the door, the merit is yours too.",
         p_title: "Donate",
-        p_sub: "You can give the full cost or any part of it — we will gather the rest.",
+        price_lbl: "Cost",
+        p_sub: "You can give the full cost — €800 for tefillin or €55 for a mezuzah — or any part of it: we will gather the rest.",
         bit_note: "(Israel)", bank: "Bank transfer", holder: "Account holder", copy: "Copy", copied: "Copied ✓",
         p_note: "<b>Please add a note:</b> “Tefillin” or “Mezuzah”. If you would like to dedicate the gift in memory of a loved one or in honour of a family occasion, write that too.",
         n_title: "Know someone who needs tefillin or a mezuzah?",
@@ -469,7 +479,8 @@
         s3_t: "אנחנו מוסרים", s3_p: "אנו מבקרים בקהילות רבות באירופה ויודעים היכן המתנה נחוצה באמת.",
         s4_t: "המצווה חיה", s4_p: "בכל יום שבו מניחים את התפילין והמזוזה על הפתח – הזכות גם שלכם.",
         p_title: "לתרומה",
-        p_sub: "אפשר לתרום את הסכום המלא או כל חלק ממנו – את השאר נשלים.",
+        price_lbl: "עלות",
+        p_sub: "אפשר לתרום את הסכום המלא – 800 € לתפילין או 55 € למזוזה – או כל חלק ממנו, ואת השאר נשלים.",
         bit_note: "(ישראל)", bank: "העברה בנקאית", holder: "שם בעל החשבון", copy: "העתקה", copied: "הועתק ✓",
         p_note: "<b>נא לציין בהערה:</b> „תפילין” או „מזוזה”. אם תרצו להקדיש את המתנה לעילוי נשמת יקיר או לכבוד שמחה משפחתית – כתבו גם זאת.",
         n_title: "מכירים מישהו שזקוק לתפילין או למזוזה?",
