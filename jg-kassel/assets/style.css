@@ -107,3 +107,4 @@ footer.site .legal .wrap{display:flex;gap:16px;flex-wrap:wrap;padding:14px 16px;
  .event{grid-template-columns:72px 1fr}
  .event .act{grid-column:1/-1}
 }
+[hidden]{display:none!important}
