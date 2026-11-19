@@ -344,6 +344,11 @@
     .back:hover { color: var(--gold); }
     [dir="rtl"] .back svg { transform: scaleX(-1); }
     @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
+    .tc-card { display: grid; grid-template-columns: auto 1fr; gap: 22px; align-items: start; }
+    .tc-card .pill { margin-bottom: 10px; }
+    .tc-card .app-title { margin-bottom: 8px; }
+    .tc-card p { margin-bottom: 12px; }
+    @media (max-width: 600px) { .tc-card { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -410,6 +415,20 @@
             <p data-i18n="tf_text">Checks the batim from photos — squareness and paint — and lets you send the photos to a rabbi.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="software">
+      <div class="wrap">
+        <a class="card app app--luach tc-card" href="/torahcrop/">
+          <img class="app-logo" src="/torahcrop/torahcrop-icon.png" alt="" width="64" height="64">
+          <div>
+            <div class="pill" data-i18n="tcrop_pill">Windows · 1 month free</div>
+            <div class="app-title">TorahCrop<small data-i18n-html="tcrop_sub">For soferim · <span class="he">ספר תורה · מזוזה · תפילין</span></small></div>
+            <p data-i18n="tcrop_text">Straightens and crops photos and scans of Torah columns, mezuzot and tefillin parshiyot for computer checking in DUK.</p>
+            <span class="app-link"><span data-i18n="tcrop_link">About the program and download</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -503,7 +522,11 @@
   "contact_title": "Have an idea for an app or website?",
   "contact_sub": "Write to us — we will discuss the task, the timeline and the price.",
   "founder": "Founder & developer: Shaul Nekrich",
-  "ft_home": "STAM checking"
+  "ft_home": "STAM checking",
+  "tcrop_pill": "Windows · 1 month free",
+  "tcrop_sub": "For soferim · <span class=\"he\">ספר תורה · מזוזה · תפילין</span>",
+  "tcrop_text": "Straightens and crops photos and scans of Torah columns, mezuzot and tefillin parshiyot for computer checking in DUK.",
+  "tcrop_link": "About the program and download"
  },
  "de": {
   "_title": "Apps & Entwicklung — Tora Doctor",
@@ -546,7 +569,11 @@
   "contact_title": "Sie haben eine Idee für eine App oder Website?",
   "contact_sub": "Schreiben Sie uns — wir besprechen Aufgabe, Zeitplan und Preis.",
   "founder": "Gründer und Entwickler: Shaul Nekrich",
-  "ft_home": "STaM-Prüfung"
+  "ft_home": "STaM-Prüfung",
+  "tcrop_pill": "Windows · 1 Monat kostenlos",
+  "tcrop_sub": "Für Soferim · <span class=\"he\">ספר תורה · מזוזה · תפילין</span>",
+  "tcrop_text": "Begradigt und schneidet Fotos und Scans von Tora-Spalten, Mesusot und Tefillin-Paraschiot für die Computerprüfung in DUK zu.",
+  "tcrop_link": "Zum Programm und Download"
  },
  "he": {
   "_title": "אפליקציות ופיתוח — Tora Doctor",
@@ -589,7 +616,11 @@
   "contact_title": "יש לכם רעיון לאפליקציה או לאתר?",
   "contact_sub": "כתבו לנו — נדבר על המשימה, הזמנים והמחיר.",
   "founder": "מייסד ומפתח: שאול נקריץ",
-  "ft_home": "בדיקת סת״ם"
+  "ft_home": "בדיקת סת״ם",
+  "tcrop_pill": "Windows · חודש ראשון חינם",
+  "tcrop_sub": "לסופרים ולמגיהים · <span class=\"he\">ספר תורה · מזוזה · תפילין</span>",
+  "tcrop_text": "מיישרת וחותכת צילומים וסריקות של עמודי ספר תורה, מזוזות ופרשיות תפילין לבדיקת מחשב ב־DUK.",
+  "tcrop_link": "על התוכנה והורדה"
  },
  "ru": {
   "_title": "Приложения и разработка — Tora Doctor",
@@ -632,7 +663,11 @@
   "contact_title": "Есть идея приложения или сайта?",
   "contact_sub": "Напишите нам — обсудим задачу, сроки и стоимость.",
   "founder": "Основатель и разработчик — Шауль Некрич",
-  "ft_home": "Проверка СТаМ"
+  "ft_home": "Проверка СТаМ",
+  "tcrop_pill": "Windows · первый месяц бесплатно",
+  "tcrop_sub": "Для софрим · <span class=\"he\">ספר תורה · מזוזה · תפילין</span>",
+  "tcrop_text": "Выравнивает и обрезает фото и сканы колонок свитка Торы, мезуз и парашийот тфилин для компьютерной проверки в DUK.",
+  "tcrop_link": "О программе и скачать"
  }
 };
 
